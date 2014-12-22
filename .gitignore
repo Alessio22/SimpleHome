@@ -1,0 +1,4 @@
+# Non-project-specific build files:
+*.class
+*.apk
+*._pk
