@@ -1,0 +1,14 @@
+<div layout="row" layout-margin>
+  <div flex flex-order="0"  >
+    <md-button class="md-raised" ng-click="change(2)">
+      prova
+    </md-button>
+  </div>
+</div>
+<div layout="row" layout-margin ng-repeat="luce in luci">
+  <div flex flex-order="{{luce.id}}" class="animate-repeat" >
+    <md-button class="md-raised" ng-click="change(luce.id)">
+      {{luce.desc}}
+    </md-button>
+  </div>
+</div>
