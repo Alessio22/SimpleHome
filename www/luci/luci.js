@@ -9,11 +9,16 @@ angular.module('simpleHome.luci', ['ngRoute'])
   });
 }])
 
-.controller('LuciCtrl', function($scope,$http) {
+.controller('LuciCtrl', function($rootScope, $scope, $http) {
 	$scope.luci = [];
-
-	//$http.get('http://localhost:8000/data/luci_desc.xml').success(function(data, status, headers, config) {
-	$http.get('http://edo.cloudns.pro/data/luci_desc.xml').success(function(data, status, headers, config) {
+	var req = {
+		method: 'GET', 
+		url: $rootScope.cfg.host+'user/luci_desc.xml', 
+		headers: {
+	    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
+	    }
+	};
+	$http(req).success(function(data, status, headers, config) {
 		var response  = x2js.xml_str2json(data).response;
 
 		for(var i=0; i<46; i++) {
@@ -29,7 +34,14 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	});
 
 	$scope.change = function(id) {
-		$http.get(host+'luci.cgi?luce='+id).success(function(data, status, headers, config) {
+		req = {
+			method: 'GET', 
+			url: $rootScope.cfg.host+'user/luci.cgi?luce='+id, 
+			headers: {
+		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
+		    }
+		};
+		$http(req).success(function(data, status, headers, config) {
 			alert('asd');
 			alert(data);
 			$scope.data = data;

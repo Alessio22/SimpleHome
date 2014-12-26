@@ -8,17 +8,21 @@ angular.module('simpleHome', [
   'simpleHome.home',
   'simpleHome.luci',
   'simpleHome.settings',
-  'simpleHome.version'
+  'simpleHome.version',
+  'simpleHome.onLoad'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
 }]).
 config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
-        $httpProvider.defaults.headers.common['Authorization'] = 'Basic OjE0MTE=';
     }
 ]);
 
 var x2js = new X2JS();
-var host = "http://edo.cloudns.pro/";
+if (typeof btoa === "undefined") {
+    _keyStr = Base64._keyStr;
+    btoa = Base64.encode;
+    atob = Base64.decode;
+}
+var localStorage = window.localStorage;

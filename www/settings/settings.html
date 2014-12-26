@@ -1,16 +1,16 @@
 <md-content>
     <form style="padding: 20px;">
-      <md-text-float label="Company" ng-model="user.company" disabled> </md-text-float>
+      http://edo.cloudns.pro/<br />
+      http://192.168.0.252/
+      <md-text-float label="Host" ng-model="cfg.host" disabled> </md-text-float>
       <div class="row">
-          <md-text-float label="FirstName" ng-model="user.firstName"> </md-text-float>
-          <md-text-float label="LastName" ng-model="user.lastName" class="long"> </md-text-float>
+          <md-text-float label="Username" ng-model="cfg.username"> </md-text-float>
+          <md-text-float label="password" ng-model="cfg.password"> </md-text-float>
       </div>
-      <md-text-float label="Address" ng-model="user.address"> </md-text-float>
-      <div class="row">
-        <md-text-float label="City" ng-model="user.city"> </md-text-float>
-        <md-text-float label="State" ng-model="user.state"> </md-text-float>
-        <md-text-float label="Postal Code" ng-model="user.postalCode"> </md-text-float>
+      <div flex flex-order="0"  >
+        <md-button class="md-raised" ng-click="updateConfig()">
+          salva
+        </md-button>
       </div>
-      <md-text-float label="Country" ng-model="user.country" disabled> </md-text-float>
     </form>
   </md-content>
