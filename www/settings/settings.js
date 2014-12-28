@@ -9,15 +9,24 @@ angular.module('simpleHome.settings', ['ngRoute'])
   });
 }])
 
-.controller('SettingsCtrl', function($rootScope, $scope) {
+.controller('SettingsCtrl', function($rootScope, $scope, $mdToast, $animate) {
 	$scope.cfg = $rootScope.cfg;
 
 	$scope.updateConfig = function() {
+		// TODO validazione 
+		
 		$rootScope.cfg.host = $scope.cfg.host;
 		$rootScope.cfg.username = $scope.cfg.username;
 		$rootScope.cfg.password = $scope.cfg.password;
 
 		localStorage.setItem("cfg", JSON.stringify($rootScope.cfg));
+
+		$mdToast.show(
+	      $mdToast.simple()
+	        .content('Salvato')
+	        .hideDelay(2000)
+	    );
+
 	};
 
 });
