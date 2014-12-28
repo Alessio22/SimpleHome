@@ -7,14 +7,15 @@ angular.module('simpleHome', [
   'simpleHome.index',
   'simpleHome.home',
   'simpleHome.luci',
+  'simpleHome.temperature',
   'simpleHome.settings',
   'simpleHome.version',
   'simpleHome.onLoad'
-]).
-config(['$routeProvider', function($routeProvider) {
+])
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
-}]).
-config(['$httpProvider', function($httpProvider) {
+}])
+.config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
     }
 ]);

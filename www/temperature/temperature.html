@@ -1,0 +1,21 @@
+<md-card>
+	<h2 align="center">Temperatura</h2>
+	<p align="center">
+		<strong>Temperatura effettiva:</strong> {{temperatura}}
+	</p>
+	<div layout="row" layout-align="space-around center">
+		<div>
+			<md-button class="md-fab" ng-class="luce.stato" ng-click="abbassa()">
+			    <i class="fa fa-chevron-down"></i>
+		  	</md-button>
+	  	</div>
+	  	<div>
+	  		<strong>{{temperaturaSet}}</strong>
+	  	</div>
+	  	<div>
+	  		<md-button class="md-fab" ng-class="luce.stato" ng-click="alza()">
+	   			<i class="fa fa-chevron-up"></i>
+	  		</md-button>
+	  	</div>
+  	</div>
+</md-card>

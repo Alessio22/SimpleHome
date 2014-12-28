@@ -32,11 +32,12 @@
         <h1 class="md-toolbar-tools">Menù</h1>
       </md-toolbar>
       <md-content class="md-padding" ng-controller="LeftSidenavCtrl">
-        <a href="#/home">
+        
           <md-button ng-click="close()" class="md-primary">
+            <a href="#/home">
              <i class="fa fa-home"></i> Home
+            </a>
           </md-button>
-        </a>
         <br />
         <a href="#/settings">
           <md-button ng-click="close()" class="md-primary">
@@ -71,6 +72,7 @@
   <script src="index.js"></script>
   <script src="home/home.js"></script>
   <script src="luci/luci.js"></script>
+  <script src="temperature/temperature.js"></script>
   <script src="settings/settings.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
