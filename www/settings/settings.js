@@ -10,6 +10,14 @@ angular.module('simpleHome.settings', ['ngRoute'])
 }])
 
 .controller('SettingsCtrl', function($rootScope, $scope, $mdToast, $animate) {
+	if($rootScope.timerTemperature) {
+		clearInterval($rootScope.timerTemperature);
+	}
+	if($rootScope.timerLuci) {
+		clearInterval($rootScope.timerLuci);
+	}
+
+	$rootScope.isHome = false;
 	$scope.cfg = $rootScope.cfg;
 
 	$scope.updateConfig = function() {

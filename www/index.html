@@ -33,18 +33,18 @@
       </md-toolbar>
       <md-content class="md-padding" ng-controller="LeftSidenavCtrl">
         
-          <md-button ng-click="close()" class="md-primary">
-            <a href="#/home">
+          <md-button ng-click="navigateTo('home')" class="md-primary">
              <i class="fa fa-home"></i> Home
-            </a>
           </md-button>
-        <br />
-        <a href="#/settings">
-          <md-button ng-click="close()" class="md-primary">
+          
+          <br />
+
+          <md-button ng-click="navigateTo('settings')" class="md-primary">
             <i class="fa fa-cog"></i> Settings
           </md-button>
-        </a>
-        <br />
+
+          <br />
+
         <span class="md-flex">SimpleHome app: v<span app-version></span></span>
       </md-content>
     </md-sidenav>

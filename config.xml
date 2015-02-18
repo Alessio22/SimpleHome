@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="it.SimpleHome" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0"
+    id="it.SimpleHome" version="0.0.1" android-versionCode="1" >
+    
     <name>SimpleHome</name>
     <description>
         SimpleHome description
@@ -9,9 +11,19 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+
+    <preference name="Orientation" value="portrait" />
 	
-	<icon src="icons/android/icon-36-ldpi.png" width="36" height="36" />
-	<icon src="icons/android/icon-48-mdpi.png" width="48" height="48" />
-	<icon src="icons/android/icon-72-hdpi.png" width="72" height="72" />
-	<icon src="icons/android/icon-96-xhdpi.png" width="96" height="96" />
+    <platform name="android">
+        <icon src="icons/android/icon-36-ldpi.png" width="36" height="36" />
+        <icon src="icons/android/icon-48-mdpi.png" width="48" height="48" />
+        <icon src="icons/android/icon-72-hdpi.png" width="72" height="72" />
+        <icon src="icons/android/icon-96-xhdpi.png" width="96" height="96" />
+
+        <!-- you can use any density that exists in the Android project -->
+        <splash src="splash/android/splash-port-hdpi.png" density="port-hdpi"/>
+        <splash src="splash/android/splash-port-ldpi.png" density="port-ldpi"/>
+        <splash src="splash/android/splash-port-mdpi.png" density="port-mdpi"/>
+        <splash src="splash/android/splash-port-xhdpi.png" density="port-xhdpi"/>
+    </platform>
 </widget>

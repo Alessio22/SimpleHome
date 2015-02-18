@@ -10,6 +10,14 @@ angular.module('simpleHome.luci', ['ngRoute'])
 }])
 
 .controller('LuciCtrl', function($rootScope, $scope, $http) {
+	if($rootScope.timerTemperature) {
+		clearInterval($rootScope.timerTemperature);
+	}
+	if($rootScope.timerLuci) {
+		clearInterval($rootScope.timerLuci);
+	}
+
+	$rootScope.isHome = false;
 	$scope.luci = [];
 	var reqDescrizioni = {
 		method: 'POST', 
@@ -33,7 +41,8 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	  	alert('error');
 	});
 
-	setInterval(function(){
+	$rootScope.timerLuci = setInterval(function(){
+		console.log("setInterval luci");
 		var reqStato = {
 			method: 'POST', 
 			url: $rootScope.cfg.host+'user/luci.xml',

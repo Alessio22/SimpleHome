@@ -10,10 +10,19 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 }])
 
 .controller('TemperatureCtrl', function($rootScope, $scope, $http) {
+	if($rootScope.timerLuci) {
+		clearInterval($rootScope.timerLuci);
+	}
+	if($rootScope.timerTemperature) {
+		clearInterval($rootScope.timerTemperature);
+	}
+
+	$rootScope.isHome = false;
 	$scope.temperatura = "";
 	$scope.temperaturaSet = "";
 	
-	setInterval(function(){
+	$rootScope.timerTemperature = setInterval(function(){
+		console.log("setInterval temperature");
 		var reqStato = {
 			method: 'POST', 
 			url: $rootScope.cfg.host+'user/termo.xml',
