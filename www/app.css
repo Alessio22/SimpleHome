@@ -1,3 +1,39 @@
-md-content.md-default-theme {
-  height: 100%;
+/* Show "Left" drawer for the "Right" drawer in the demo */
+.snapjs-right .snap-drawer-left {
+	display: block;
+	right: 0;
+	left: auto;
+}
+
+/* Hide the actual "Right" drawer in the demo */
+.snapjs-right .snap-drawer-right {
+	display: none;
+}
+
+/* Show the "Drag" background in the demo */
+#content {
+	background-color: #FFF;
+}
+
+footer{
+	position: absolute;
+	bottom: 0;
+}
+
+#content, #menu{
+	margin-top: 54px;
+}
+
+.snap-drawer-left {
+  background-color: #CCC;
+  box-shadow: 10px 10px 5px #000;
+}
+
+#alert-success {
+	display: none;
+}
+
+label {
+	color: #158cba;
+	font-weight: bold; 
 }

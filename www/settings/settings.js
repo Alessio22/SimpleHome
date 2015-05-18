@@ -9,7 +9,7 @@ angular.module('simpleHome.settings', ['ngRoute'])
   });
 }])
 
-.controller('SettingsCtrl', function($rootScope, $scope, $mdToast, $animate) {
+.controller('SettingsCtrl', function($rootScope, $scope, $animate) {
 	if($rootScope.timerTemperature) {
 		clearInterval($rootScope.timerTemperature);
 	}
@@ -29,12 +29,8 @@ angular.module('simpleHome.settings', ['ngRoute'])
 
 		localStorage.setItem("cfg", JSON.stringify($rootScope.cfg));
 
-		$mdToast.show(
-	      $mdToast.simple()
-	        .content('Salvato')
-	        .hideDelay(2000)
-	    );
-
+	    $("#alert-success").show();
+		$("#alert-success").delay(2000).fadeOut('slow');
 	};
 
 });

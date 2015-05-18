@@ -2,7 +2,6 @@
 
 // Declare app level module which depends on views, and components
 angular.module('simpleHome', [
-  'ngMaterial',
   'ngRoute',
   'simpleHome.index',
   'simpleHome.home',
@@ -53,3 +52,19 @@ function onConfirm(button) {
         navigator.app.exitApp();
     }
 }
+
+// SnapJs
+var snapper = new Snap({
+  disable: 'right',
+  element: document.getElementById('content')
+});
+// var addEvent = function addEvent(element, eventName, func) {
+//   if (element.addEventListener) {
+//       return element.addEventListener(eventName, func, false);
+//     } else if (element.attachEvent) {
+//         return element.attachEvent("on" + eventName, func);
+//     }
+// };
+// addEvent(document.getElementById('open-left'), 'click', function(){
+//   snapper.open('left');
+// });
