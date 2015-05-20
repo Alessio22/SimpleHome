@@ -2,7 +2,6 @@
 
 // Declare app level module which depends on views, and components
 angular.module('simpleHome', [
-  'ngMaterial',
   'ngRoute',
   'simpleHome.index',
   'simpleHome.home',

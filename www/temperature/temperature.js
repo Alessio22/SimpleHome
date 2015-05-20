@@ -10,19 +10,8 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 }])
 
 .controller('TemperatureCtrl', function($rootScope, $scope, $http) {
-	if($rootScope.timerLuci) {
-		clearInterval($rootScope.timerLuci);
-	}
-	if($rootScope.timerTemperature) {
-		clearInterval($rootScope.timerTemperature);
-	}
 
-	$rootScope.isHome = false;
-	$scope.temperatura = "";
-	$scope.temperaturaSet = "";
-	
-	$rootScope.timerTemperature = setInterval(function(){
-		console.log("setInterval temperature");
+	function update() {
 		var reqStato = {
 			method: 'POST', 
 			url: $rootScope.cfg.host+'user/termo.xml',
@@ -35,7 +24,13 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 			$scope.temperatura = response.temp0;
 			$scope.temperaturaSet = response.setpoint0;
 		});
-	}, 1000);
+	}
+
+	$rootScope.isHome = false;
+	$scope.temperatura = "";
+	$scope.temperaturaSet = "";
+
+	update();
 
 	$scope.alza = function() {
 		var reqCambioStato = {
@@ -47,6 +42,9 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 		};
 		$http(reqCambioStato).success(function(data, status, headers, config) {
 			console.log(data);
+			setTimeout(function(){
+				update();
+			}, 500);
 		}).
 		error(function(data, status, headers, config) {
 			alert('error');
@@ -63,6 +61,9 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 		};
 		$http(reqCambioStato).success(function(data, status, headers, config) {
 			console.log(data);
+			setTimeout(function(){
+				update();
+			}, 500);
 		}).
 		error(function(data, status, headers, config) {
 			alert('error');
