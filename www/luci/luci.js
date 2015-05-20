@@ -10,11 +10,21 @@ angular.module('simpleHome.luci', ['ngRoute'])
 }])
 
 .controller('LuciCtrl', function($rootScope, $scope, $http) {
-	if($rootScope.timerTemperature) {
-		clearInterval($rootScope.timerTemperature);
-	}
-	if($rootScope.timerLuci) {
-		clearInterval($rootScope.timerLuci);
+
+	function update() {
+		var reqStato = {
+			method: 'POST', 
+			url: $rootScope.cfg.host+'user/luci.xml',
+			headers: {
+		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
+		    }
+		};
+		$http(reqStato).success(function(data, status, headers, config) {
+			var response  = x2js.xml_str2json(data).response;
+			for(var i = 0;i < $scope.luci.length; i++){
+				$scope.luci[i].stato = response.stato.charAt(i) == 1 ? 'btn btn-primary' : 'btn btn-default' ;
+			}
+		});
 	}
 
 	$rootScope.isHome = false;
@@ -35,28 +45,11 @@ angular.module('simpleHome.luci', ['ngRoute'])
 				$scope.luci.push({"id":i, "desc": desc, "stato": 0});
 			}
 		}
-
-	  }).
-	  error(function(data, status, headers, config) {
+		update();
+  	}).
+  	error(function(data, status, headers, config) {
 	  	alert('error');
 	});
-
-	$rootScope.timerLuci = setInterval(function(){
-		console.log("setInterval luci");
-		var reqStato = {
-			method: 'POST', 
-			url: $rootScope.cfg.host+'user/luci.xml',
-			headers: {
-		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
-		    }
-		};
-		$http(reqStato).success(function(data, status, headers, config) {
-			var response  = x2js.xml_str2json(data).response;
-			for(var i = 0;i < $scope.luci.length; i++){
-				$scope.luci[i].stato = response.stato.charAt(i) == 1 ? 'md-primary' : '' ;
-			}
-		});
-	}, 1000);
 
 	$scope.camboStato = function(id) {
 		var reqCambioStato = {
@@ -68,6 +61,9 @@ angular.module('simpleHome.luci', ['ngRoute'])
 		};
 		$http(reqCambioStato).success(function(data, status, headers, config) {
 			console.log(data);
+			setTimeout(function(){
+				update();
+			}, 500);
 		}).
 		error(function(data, status, headers, config) {
 			alert('error');
@@ -75,3 +71,4 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	};
 
 });
+
