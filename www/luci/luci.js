@@ -22,7 +22,7 @@ angular.module('simpleHome.luci', ['ngRoute'])
 		$http(reqStato).success(function(data, status, headers, config) {
 			var response  = x2js.xml_str2json(data).response;
 			for(var i = 0;i < $scope.luci.length; i++){
-				$scope.luci[i].stato = response.stato.charAt(i) == 1 ? 'btn btn-primary' : 'btn btn-default' ;
+				$scope.luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-success' : 'btn-default' ;
 			}
 		});
 	}

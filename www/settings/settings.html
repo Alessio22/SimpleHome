@@ -1,18 +1,43 @@
 
 http://edo.cloudns.pro/<br />
 http://192.168.0.252/
-<form>
-  <div class="form-group">
-    <label for="host">Host</label>
-    <input ng-model="cfg.host" type="text" class="form-control" id="host" placeholder="Enter host">
-  </div>
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input ng-model="cfg.username" type="text" class="form-control" id="username" placeholder="Enter username">
-  </div>
-  <div class="form-group">
-    <label for="password">password</label>
-    <input ng-model="cfg.password" type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <button ng-click="updateConfig()" class="btn btn-primary btn-lg btn-block">Salva</button>
-</form>
+<div class="col-xs-10 col-xs-offset-1 my-jumbotron">
+
+  <form>
+    <div class="page-header">
+      <h2>Profilo 1</h2>
+    </div>
+    <div class="form-group">
+      <label for="host">Host</label>
+      <input ng-model="cfg1.host" type="text" class="form-control" id="host" placeholder="Enter host">
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input ng-model="cfg1.username" type="text" class="form-control" id="username" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input ng-model="cfg1.password" type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+  </form>
+
+  <form>
+    <div class="page-header">
+      <h2>Profilo 2</h2>
+    </div>
+    <div class="form-group">
+      <label for="host">Host</label>
+      <input ng-model="cfg2.host" type="text" class="form-control" id="host" placeholder="Enter host">
+    </div>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input ng-model="cfg2.username" type="text" class="form-control" id="username" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input ng-model="cfg2.password" type="password" class="form-control" id="password" placeholder="Password">
+    </div>
+  </form>
+
+  <button ng-click="updateConfig()" class="btn btn-success btn-lg btn-block">Salva</button>
+</div>

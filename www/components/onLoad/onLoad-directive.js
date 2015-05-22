@@ -4,12 +4,16 @@ angular.module('simpleHome.onLoad', [])
 
 .directive('onLoad', function() {
   return function($rootScope, elm, attrs) {
-  	var cfg = JSON.parse(localStorage.getItem("cfg"))
+  	var settings = JSON.parse(localStorage.getItem("settings"))
+
   	$rootScope.cfg = {'host':'','username':'','password':''}
-  	if(cfg) {
-	    $rootScope.cfg.host = cfg.host==undefined?'':cfg.host;
-		$rootScope.cfg.username = cfg.username==undefined?'':cfg.username;
-		$rootScope.cfg.password = cfg.password==undefined?'':cfg.password;  	
+  	$rootScope.settings = { 'profile': $rootScope.profile, 'cfg': [{'host':'','username':'','password':''}, {'host':'','username':'','password':''}] }
+  	if(settings) {
+  		$rootScope.settings = settings
+		    $rootScope.cfg.host = settings.cfg[settings.profile].host==undefined?'':settings.cfg[settings.profile].host;
+			$rootScope.cfg.username = settings.cfg[settings.profile].username==undefined?'':settings.cfg[settings.profile].username;
+			$rootScope.cfg.password = settings.cfg[settings.profile].password==undefined?'':settings.cfg[settings.profile].password;  
+
   	}
 
   };

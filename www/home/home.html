@@ -1,3 +1,16 @@
-<a class="btn btn-primary btn-lg btn-block" href="#luci"><i class="fa fa-lightbulb-o"></i> Luci</a></li>
-<a class="btn btn-primary btn-lg btn-block" href="#temperature"><i class="fa fa-bar-chart"></i> Temperature</a></li>
-<a class="btn btn-primary btn-lg btn-block" href="#settings"><i class="fa fa-cog"></i> Impostazioni</a></li>
+<div class="col-xs-10 col-xs-offset-1">
+  <form>
+    <div class="form-group">
+      <label for="profilo">Profilo</label>
+      <select id="profilo" class="form-control" ng-model="profilo" convert-to-number ng-change="change()" >
+        <option ng-repeat="it in cfg" ng-selected="{{$index == profilo}}" value="{{$index}}">{{it.host}}</option>
+      </select>
+    </div>
+  </form>
+  <hr />
+  <a class="btn btn-success btn-lg btn-block" href="#luci"><i class="fa fa-lightbulb-o"></i> Luci</a></li>
+  <a class="btn btn-success btn-lg btn-block" href="#temperature"><i class="fa fa-bar-chart"></i> Temperature</a></li>
+  <a class="btn btn-success btn-lg btn-block" href="#settings"><i class="fa fa-cog"></i> Impostazioni</a></li>
+</div>
+
+
