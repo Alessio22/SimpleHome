@@ -9,10 +9,18 @@ angular.module('simpleHome.home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', function($rootScope, $scope) {
+.controller('HomeCtrl', function($rootScope, $scope, $location) {
 	$rootScope.isHome = true;
 	$scope.profilo = $rootScope.settings.profile;
 	$scope.cfg = $rootScope.settings.cfg;
+
+	$scope.statoConfig = 0;
+	if($rootScope.settings.cfg.length > 0) { // se c'è la configurazione 
+		$scope.statoConfig = 1;
+	}
+	if($rootScope.settings.profile) { // se è stato scelto un profilo 
+		$scope.statoConfig = 2;
+	}
 
 	$scope.change = function() {
 		$rootScope.settings.profile = $scope.profilo;
@@ -29,6 +37,9 @@ angular.module('simpleHome.home', ['ngRoute'])
 			$rootScope.cfg.username = settings.cfg[1].username==undefined?'':settings.cfg[1].username;
 			$rootScope.cfg.password = settings.cfg[1].password==undefined?'':settings.cfg[1].password;  
 		}
+
+		$scope.statoConfig = 2;
+		$location.path('/');
 	};
 
 });

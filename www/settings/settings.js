@@ -9,7 +9,7 @@ angular.module('simpleHome.settings', ['ngRoute'])
   });
 }])
 
-.controller('SettingsCtrl', function($rootScope, $scope, $animate) {
+.controller('SettingsCtrl', function($rootScope, $scope, $animate, $location) {
 	$rootScope.isHome = false;
 
 	$scope.cfg1 = $rootScope.settings.cfg[0];
@@ -29,13 +29,12 @@ angular.module('simpleHome.settings', ['ngRoute'])
 			$rootScope.cfg.username = settings.cfg[0].username==undefined?'':settings.cfg[0].username;
 			$rootScope.cfg.password = settings.cfg[0].password==undefined?'':settings.cfg[0].password;  
 		} else {
-		    $rootScope.cfg.host = settings.cfg[1].host==undefined?'':settings[1].host;
+		    $rootScope.cfg.host = settings.cfg[1].host==undefined?'':settings.cfg[1].host;
 			$rootScope.cfg.username = settings.cfg[1].username==undefined?'':settings.cfg[1].username;
 			$rootScope.cfg.password = settings.cfg[1].password==undefined?'':settings.cfg[1].password;  
 		}
 
-	    $("#alert-success").show();
-		$("#alert-success").delay(2000).fadeOut('slow');
+		$location.path('/');
 	};
 
 });
