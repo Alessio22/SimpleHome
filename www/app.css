@@ -5,40 +5,84 @@ footer{
 
 body {
 	margin-top: 60px;
+	background-color: #303030;
 }
 
-h1 {
-	margin: 5px;
+.navbar {
+  background-color: #00A651;
+  border-color: #1D761F;
+}
+
+.navbar-default .navbar-brand {
+  color: #FFF;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar-default .navbar-brand:focus {
+  color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #FFF;
+}
+
+.navbar-default .navbar-brand:active {
+  color: #FFF;
+  background-color: #1D761F;
+}
+
+#menu{
+	margin: 0 5px 0 5px;
+}
+
+.btn {
+  font-size: 15px;
+}
+
+.btn-success {
+  background-color: #00A651;
+  border-color: #1D761F;
+}
+
+.btn:hover {
+  margin-top: 5px;
+  border-bottom-width: 4px;
 }
 
 .page-header {
-	margin: 20px;
+	margin: 10px;
+	padding: 0;
 }
 
-#alert-success {
-	display: none;
+h1, h2 {
+	color: #FFF;
 }
 
 label {
-	color: #158cba;
+	color: #00A651;
+	font-weight: bold;
+	font-size: 15px; 
+}
+
+p {
+	color: #00A651;
 	font-weight: bold; 
+	font-size: 15px;
+}
+
+strong {
+	color: #00A651;
+	font-weight: bold; 
+	font-size: 25px;
 }
 
 .my-jumbotron {
+	margin: 0 5px 0 5px;
 	padding: 20px;
-    background-color: #fafafa;
-
 	border-radius: 5px;
-	border: 1px solid #e7e7e7;
+	background-color: #444444;
+  	border: 1px solid #353535;
  	-webkit-box-shadow: inset 0 2px 0 rgba(0,0,0,0.05);
  	        box-shadow: inset 0 2px 0 rgba(0,0,0,0.05);
-}
-
-.btn-block+.btn-block:hover {
-	margin-top: 5px;
-	border-bottom-width: 4px;
-}
-.btn:hover {
-	margin-top: 0;
-	border-bottom-width: 4px; 
 }

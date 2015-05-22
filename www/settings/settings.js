@@ -9,28 +9,32 @@ angular.module('simpleHome.settings', ['ngRoute'])
   });
 }])
 
-.controller('SettingsCtrl', function($rootScope, $scope, $animate) {
-	if($rootScope.timerTemperature) {
-		clearInterval($rootScope.timerTemperature);
-	}
-	if($rootScope.timerLuci) {
-		clearInterval($rootScope.timerLuci);
-	}
-
+.controller('SettingsCtrl', function($rootScope, $scope, $animate, $location) {
 	$rootScope.isHome = false;
-	$scope.cfg = $rootScope.cfg;
+
+	$scope.cfg1 = $rootScope.settings.cfg[0];
+	$scope.cfg2 = $rootScope.settings.cfg[1];
 
 	$scope.updateConfig = function() {
 		// TODO validazione 
 		
-		$rootScope.cfg.host = $scope.cfg.host;
-		$rootScope.cfg.username = $scope.cfg.username;
-		$rootScope.cfg.password = $scope.cfg.password;
+		$rootScope.settings.cfg[0] = $scope.cfg1;
+		$rootScope.settings.cfg[1] = $scope.cfg2;
 
-		localStorage.setItem("cfg", JSON.stringify($rootScope.cfg));
+		var settings = { 'profile': $rootScope.settings.profile, 'cfg': [$rootScope.settings.cfg[0], $rootScope.settings.cfg[1]] }
+		localStorage.setItem("settings", JSON.stringify(settings));
 
-	    $("#alert-success").show();
-		$("#alert-success").delay(2000).fadeOut('slow');
+		if(settings.profile == 0) {
+		    $rootScope.cfg.host = settings.cfg[0].host==undefined?'':settings.cfg[0].host;
+			$rootScope.cfg.username = settings.cfg[0].username==undefined?'':settings.cfg[0].username;
+			$rootScope.cfg.password = settings.cfg[0].password==undefined?'':settings.cfg[0].password;  
+		} else {
+		    $rootScope.cfg.host = settings.cfg[1].host==undefined?'':settings.cfg[1].host;
+			$rootScope.cfg.username = settings.cfg[1].username==undefined?'':settings.cfg[1].username;
+			$rootScope.cfg.password = settings.cfg[1].password==undefined?'':settings.cfg[1].password;  
+		}
+
+		$location.path('/');
 	};
 
 });
