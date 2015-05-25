@@ -70,4 +70,8 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 		});
 	};
 
+	$scope.refresh = function() {
+		update();
+	};
+
 });

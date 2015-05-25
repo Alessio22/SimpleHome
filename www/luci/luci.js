@@ -64,10 +64,17 @@ angular.module('simpleHome.luci', ['ngRoute'])
 			setTimeout(function(){
 				update();
 			}, 500);
+			setTimeout(function(){
+				update();
+			}, 500);
 		}).
 		error(function(data, status, headers, config) {
 			alert('error');
 		});
+	};
+
+	$scope.refresh = function() {
+		update();
 	};
 
 });
