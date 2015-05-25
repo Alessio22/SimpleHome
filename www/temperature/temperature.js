@@ -14,7 +14,7 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 	function update() {
 		var reqStato = {
 			method: 'POST', 
-			url: $rootScope.cfg.host+'user/termo.xml',
+			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.xml',
 			headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
 		    }
@@ -35,7 +35,7 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 	$scope.alza = function() {
 		var reqCambioStato = {
 			method: 'POST', 
-			url: $rootScope.cfg.host+'user/termo.cgi?command=1&num_termo=0', 
+			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.cgi?command=1&num_termo=0', 
 			headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
 		    }
@@ -54,7 +54,7 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 	$scope.abbassa = function() {
 		var reqCambioStato = {
 			method: 'POST', 
-			url: $rootScope.cfg.host+'user/termo.cgi?command=0&num_termo=0', 
+			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.cgi?command=0&num_termo=0', 
 			headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
 		    }

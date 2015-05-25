@@ -3,7 +3,7 @@
     <div class="form-group">
       <label for="profilo">Profilo</label>
       <select id="profilo" class="form-control" ng-model="profilo" convert-to-number ng-change="change()" >
-        <option ng-repeat="it in cfg" ng-selected="{{$index == profilo}}" value="{{$index}}">{{it.host}}</option>
+        <option ng-repeat="it in cfg" ng-selected="{{$index == profilo}}" value="{{$index}}">{{it.alias}}</option>
       </select>
     </div>
     <hr />

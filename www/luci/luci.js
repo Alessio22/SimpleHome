@@ -14,7 +14,7 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	function update() {
 		var reqStato = {
 			method: 'POST', 
-			url: $rootScope.cfg.host+'user/luci.xml',
+			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.xml',
 			headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
 		    }
@@ -31,13 +31,13 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	$scope.luci = [];
 	var reqDescrizioni = {
 		method: 'POST', 
-		url: $rootScope.cfg.host+'user/luci_desc.xml',
+		url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci_desc.xml',
 		headers: {
 	    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
 	    }
 	};
 	$http(reqDescrizioni).success(function(data, status, headers, config) {
-		var response  = x2js.xml_str2json(data).response;
+		var response = x2js.xml_str2json(data).response;
 
 		for(var i=0; i<46; i++) {
 			var desc = response["desc"+i];
@@ -54,7 +54,7 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	$scope.camboStato = function(id) {
 		var reqCambioStato = {
 			method: 'POST', 
-			url: $rootScope.cfg.host+'user/luci.cgi?luce='+id, 
+			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.cgi?luce='+id, 
 			headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
 		    }
