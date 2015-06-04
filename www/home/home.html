@@ -1,16 +1,16 @@
-<div layout="row" layout-margin>
-  <div flex flex-order="0">
-      <md-button class="md-fab" ng-click="navigateTo('luci')" >
-          <i class="fa fa-lightbulb-o"></i>
-      </md-button>
-      <br />
-      Luci
-  </div>
-  <div flex flex-order="1">
-	  <md-button class="md-fab" ng-click="navigateTo('temperature')" >
-	      <i class="fa fa-bar-chart"></i>
-	  </md-button>
-	  <br />
-	  Temperature
-  </div>
+<div id="menu">
+  <form ng-show="{{ statoConfig > 0 }}" >
+    <div class="form-group">
+      <label for="profilo">Profilo</label>
+      <select id="profilo" class="form-control" ng-model="profilo" convert-to-number ng-change="change()" >
+        <option ng-repeat="it in cfg" ng-selected="{{$index == profilo}}" value="{{$index}}">{{it.alias}}</option>
+      </select>
+    </div>
+    <hr />
+  </form>
+
+  <a ng-show="{{ statoConfig == 2 }}" class="menu btn btn-success btn-lg btn-block" href="#luci"><i class="fa fa-lightbulb-o"></i> Luci</a></li>
+  <a ng-show="{{ statoConfig == 2 }}" class="menu btn btn-success btn-lg btn-block" href="#temperature"><i class="fa fa-sun-o"></i> Temperature</a></li>
+  <a ng-show="{{ statoConfig == 2 }}" class="menu btn btn-success btn-lg btn-block disabled" href="#allarme"><i class="fa fa-shield"></i> allarme</a></li>
+  <a class="menu btn btn-success btn-lg btn-block" href="#settings"><i class="fa fa-cog"></i> Impostazioni</a></li>
 </div>

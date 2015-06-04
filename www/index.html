@@ -9,55 +9,39 @@
   <title>SimpleHome App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css" >
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <!-- link rel="stylesheet" href="bower_components/angular-material/angular-material.css" -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" >
+
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.lumen.min.css">
   <link rel="stylesheet" href="app.css">
-  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-  <script src="xml2json.min.js"></script>
+  
+
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script type="text/javascript" src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+  <script type="text/javascript" src="jQuery/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="xml2json.min.js"></script>
+
 </head>
 <body on-load>
 
-  <md-toolbar ng-controller="ToolbarCtrl">
-    <h2 ng-click="toggleLeft()" class="md-toolbar-tools">
-      <span>SimpleHome</span>
-    </h2>
-  </md-toolbar>
-
-  <section layout="row" flex>
-
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Menù</h1>
-      </md-toolbar>
-      <md-content class="md-padding" ng-controller="LeftSidenavCtrl">
-        
-          <md-button ng-click="navigateTo('home')" class="md-primary">
-             <i class="fa fa-home"></i> Home
-          </md-button>
-          
-          <br />
-
-          <md-button ng-click="navigateTo('settings')" class="md-primary">
-            <i class="fa fa-cog"></i> Settings
-          </md-button>
-
-          <br />
-
-        <span class="md-flex">SimpleHome app: v<span app-version></span></span>
-      </md-content>
-    </md-sidenav>
-
-    <md-content flex class="md-padding">
-      <div layout="column" >
-
-        <div ng-view></div>
-
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#home">SimpleHome</a>
       </div>
-    </md-content>
+    </div>
+  </nav>
 
-  </section>
+  <div class="container">
+    <div class="row">
+      <div ng-view></div>
+    </div>
+  </div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -67,7 +51,7 @@
   <script src="bower_components/angular-aria/angular-aria.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/hammerjs/hammer.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
+  <!-- script src="bower_components/angular-material/angular-material.js"></script -->
   <script src="app.js"></script>
   <script src="index.js"></script>
   <script src="home/home.js"></script>

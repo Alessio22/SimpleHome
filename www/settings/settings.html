@@ -1,16 +1,59 @@
-<md-content>
-    <form style="padding: 20px;">
-      http://edo.cloudns.pro/<br />
-      http://192.168.0.252/
-      <md-text-float label="Host" ng-model="cfg.host" disabled> </md-text-float>
-      <div class="row">
-          <md-text-float label="Username" ng-model="cfg.username"> </md-text-float>
-          <md-text-float label="password" ng-model="cfg.password"> </md-text-float>
+<div class="my-jumbotron">
+
+  <form>
+    <div class="form-group">
+      <label for="alias">Alias</label>
+      <input ng-model="cfg1.alias" type="text" class="form-control" id="alias" placeholder="Enter alias">
+    </div>
+    <div class="form-group">
+      <label for="host1">Host</label>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <select ng-model="cfg1.prot" >
+            <option value="HTTP://">HTTP</option>
+            <option value="HTTPS://">HTTPS</option>
+          </select>
+        </span>
+        <input ng-model="host1" type="text" class="form-control" id="host1" placeholder="Enter host">
       </div>
-      <div flex flex-order="0"  >
-        <md-button class="md-raised" ng-click="updateConfig()">
-          salva
-        </md-button>
+    </div>
+    <div class="form-group">
+      <label for="username1">Username</label>
+      <input ng-model="cfg1.username" type="text" class="form-control" id="username1" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="password1">Password</label>
+      <input ng-model="cfg1.password" type="password" class="form-control" id="password1" placeholder="Password">
+    </div>
+  </form>
+
+  <form>
+    <hr />
+    <div class="form-group">
+      <label for="alias">Alias</label>
+      <input ng-model="cfg2.alias" type="text" class="form-control" id="alias" placeholder="Enter alias">
+    </div>
+    <div class="form-group">
+      <label for="host2">Host</label>
+      <div class="input-group">
+        <span class="input-group-addon" >
+          <select ng-model="cfg2.prot" >
+            <option value="HTTP://">HTTP</option>
+            <option value="HTTPS://">HTTPS</option>
+          </select>
+        </span>
+        <input ng-model="host2" type="text" class="form-control" id="host2" placeholder="Enter host">
       </div>
-    </form>
-  </md-content>
+    </div>
+    <div class="form-group">
+      <label for="username2">Username</label>
+      <input ng-model="cfg2.username" type="text" class="form-control" id="username2" placeholder="Enter username">
+    </div>
+    <div class="form-group">
+      <label for="password2">Password</label>
+      <input ng-model="cfg2.password" type="password" class="form-control" id="password2" placeholder="Password">
+    </div>
+  </form>
+
+  <button ng-click="updateConfig()" class="btn btn-success btn-lg btn-block">Salva</button>
+</div>

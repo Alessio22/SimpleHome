@@ -1,9 +1,9 @@
-<div layout="row" class="animate-repeat" ng-repeat="luce in luci">
-  <div flex="33">	
-  	<md-button class="md-fab" ng-class="luce.stato" ng-click="camboStato(luce.id)">
-      <i class="fa fa-lightbulb-o"></i>
-  	</md-button> 
-  	<br />
-  	{{luce.desc}}
-  </div>
+<div id="refresh">
+	<i class="fa fa-refresh fa-2x" ng-click="refresh()"></i>
+</div>
+<div class="col-xs-4 col-sm-3 animate-repeat text-center" ng-repeat="luce in luci">
+	<button class="btn" ng-class="luce.stato" ng-click="camboStato(luce.id)">
+		<i class="fa fa-lightbulb-o"></i>
+	</button>
+	<p>{{luce.desc}}</p>
 </div>
