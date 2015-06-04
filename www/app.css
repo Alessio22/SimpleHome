@@ -89,10 +89,9 @@ strong {
 
 #refresh {
 	position: absolute;
-	top: 12px;
-	right: 20px;
+	top: 0;
+	right: 0;
 	z-index: 9999;
-	font-size: 20px;
 	color: #FFF;
+	padding: 11px 20px;
 }
-

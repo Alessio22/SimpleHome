@@ -12,6 +12,8 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 .controller('TemperatureCtrl', function($rootScope, $scope, $http) {
 
 	function update() {
+		$("#spinner").show();
+		$("#refresh").addClass("fa-spin");
 		var reqStato = {
 			method: 'POST', 
 			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.xml',
@@ -23,6 +25,11 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 			var response  = x2js.xml_str2json(data).response;
 			$scope.temperatura = response.temp0;
 			$scope.temperaturaSet = response.setpoint0;
+
+			setTimeout(function(){
+				$("#spinner").hide();
+				$("#refresh").removeClass("fa-spin");
+			}, 500);
 		});
 	}
 

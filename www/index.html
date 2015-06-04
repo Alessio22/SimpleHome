@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="bootstrap/css/bootstrap.lumen.min.css">
   <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="spinner.css">
   
   <script type="text/javascript" src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
   <script type="text/javascript" src="jQuery/jquery-2.1.4.min.js"></script>
@@ -26,6 +27,11 @@
 
 </head>
 <body on-load>
+  <div id="spinner" class="loader">
+    <svg class="circular">
+        <circle class="path" cx="50" cy="50" r="10" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+  </div>
 
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">

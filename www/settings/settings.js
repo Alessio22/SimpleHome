@@ -16,7 +16,7 @@ angular.module('simpleHome.settings', ['ngRoute'])
 	$scope.cfg2 = $rootScope.settings.cfg[1];
 
 	$scope.host1 = $scope.cfg1==undefined?'':$scope.cfg1.host;
-	$scope.host2 = $scope.cfg2==undefined?'':$scope.cfg2.alias;
+	$scope.host2 = $scope.cfg2==undefined?'':$scope.cfg2.host;
 
 	$scope.updateConfig = function() {
 		// TODO validazione 
