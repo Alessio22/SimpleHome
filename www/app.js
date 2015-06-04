@@ -25,7 +25,6 @@ if (typeof btoa === "undefined") {
     btoa = Base64.encode;
     atob = Base64.decode;
 }
-var localStorage = window.localStorage;
 
 window.addEventListener("deviceready", onDeviceReady, false);
 
@@ -38,7 +37,7 @@ function onBackKeyDown(e) {
   alert('onBackKeyDown');
   if($rootScope.isHome) {
     e.preventDefault();
-    navigator.notification.confirm("Are you sure you want to exit ?", 
+    navigator.notification.confirm("Are you sure you want to exit?", 
       onConfirm, "Confirmation", "Yes,No"); 
   } else {
     location.href = "#/home";

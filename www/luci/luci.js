@@ -12,7 +12,6 @@ angular.module('simpleHome.luci', ['ngRoute'])
 .controller('LuciCtrl', function($rootScope, $scope, $http) {
 
 	function update() {
-		$("#spinner").show();
 		$("#refresh").addClass("fa-spin");
 		var reqStato = {
 			method: 'POST', 
@@ -27,7 +26,6 @@ angular.module('simpleHome.luci', ['ngRoute'])
 				$scope.luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-success' : 'btn-default' ;
 			}
 			setTimeout(function(){
-				$("#spinner").hide();
 				$("#refresh").removeClass("fa-spin");
 			}, 500);
 		});
