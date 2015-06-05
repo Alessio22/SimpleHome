@@ -5,6 +5,20 @@ angular.module('simpleHome.onLoad', [])
 .directive('onLoad', function() {
   return function($rootScope, elm, attrs) {
 
+  	// controllo del tasto back
+  	document.addEventListener("deviceready", onDeviceReady, false); 
+	function onDeviceReady() {
+	  document.addEventListener("backbutton", onBackKeyDown, false); 
+	}
+	function onBackKeyDown(e) {
+	  if($rootScope.isHome == true) {
+	    e.preventDefault();
+	    navigator.app.exitApp();
+	  } else {
+	  	window.history.back();
+	  }
+	}
+
   	var settings = JSON.parse(localStorage.getItem("settings"));
 
   	$rootScope.cfg = {'alias':'','prot':'','host':'','username':'','password':''};
