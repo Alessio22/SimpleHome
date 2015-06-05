@@ -4,6 +4,7 @@ angular.module('simpleHome.onLoad', [])
 
 .directive('onLoad', function() {
   return function($rootScope, elm, attrs) {
+
   	var settings = JSON.parse(localStorage.getItem("settings"));
 
   	$rootScope.cfg = {'alias':'','prot':'','host':'','username':'','password':''};

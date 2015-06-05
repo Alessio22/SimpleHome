@@ -13,6 +13,10 @@
     <access origin="*" />
 
     <preference name="Orientation" value="portrait" />
+    <preference name="LoadingDialog" value="SimpleHome, Avvio applicazione..."/>
+    <preference name="ShowTitle" value="false"/>
+    <preference name="LogLevel" value="ERROR"/>
+    <preference name="KeepRunning" value="false"/>
 	
     <platform name="android">
         <icon src="icons/android/icon-36-ldpi.png" width="36" height="36" />
