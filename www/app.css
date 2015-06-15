@@ -45,7 +45,12 @@ body {
   border-color: #1D761F;
 }
 
-.menu .btn:hover {
+.menu:hover {
+  margin-top: 5px;
+  border-bottom-width: 4px;
+}
+
+.menu:active {
   margin-top: 5px;
   border-bottom-width: 4px;
 }
