@@ -9,7 +9,7 @@ angular.module('simpleHome.settings', ['ngRoute'])
   });
 }])
 
-.controller('SettingsCtrl', function($rootScope, $scope, $animate, $location) {
+.controller('SettingsCtrl', function($rootScope, $scope, $location) {
 	$rootScope.isHome = false;
 
 	$scope.cfg1 = $rootScope.settings.cfg[0];

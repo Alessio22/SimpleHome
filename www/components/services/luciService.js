@@ -3,53 +3,59 @@
 angular.module('simpleHome.luciService', [])
 .factory('LuciService', ['$rootScope','$http', function($rootScope,$http) {
 	return {
-    	getLuci: function() {
-    		var luci = [];
-      		var promise = $http({
-				method: 'POST', 
+  	getLuci: function(luci) {
+    	var promise = $http({
+				method: 'POST',
 				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci_desc.xml',
 				headers: {
-			    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
-			    }
+			  	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
+		    }
 			});
-	      	promise.success(function(data, status, headers, conf) {
-				return data;
-	      	});
-      		return promise;
-   		},
+    	promise.success(function(data, status, headers, conf) {
+				var response = x2js.xml_str2json(data).response;
+				for(var i=0; i<46; i++) {
+					var desc = response["desc"+i];
+					if(desc!="") {
+						luci.push({"id":i, "desc": desc, "stato": 0});
+					}
+				}
+				return luci;
+    	});
+  		return promise;
+ 		},
 
 		statoLuci: function(luci) {
 			$("#refresh").addClass("fa-spin");
 			var promise = $http( {
-				method: 'POST', 
+				method: 'POST',
 				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.xml',
 				headers: {
-			    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
-			    }
+		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
+		    }
 			});
-		  	promise.success(function(data, status, headers, conf) {
-		  		var response  = x2js.xml_str2json(data).response;
+	  	promise.success(function(data, status, headers, conf) {
+	  		var response  = x2js.xml_str2json(data).response;
 				for(var i = 0;i < luci.length; i++){
 					luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-success' : 'btn-default' ;
 				}
 				setTimeout(function(){
 					$("#refresh").removeClass("fa-spin");
 				}, 500);
-		    	return luci;
+	    	return luci;
 			});
 		 	return promise;
 		},
 
 		cambioStatoLuci: function(id) {
 			var promise = $http({
-				method: 'POST', 
-				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.cgi?luce='+id, 
+				method: 'POST',
+				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.cgi?luce='+id,
 				headers: {
-			    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
-			    }
+		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
+		    }
 			});
-		  	promise.success(function(data, status, headers, conf) {
-		    	return data;
+	  	promise.success(function(data, status, headers, conf) {
+	    	return data;
 			});
 		 	return promise;
 		}

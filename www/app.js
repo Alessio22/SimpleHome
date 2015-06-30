@@ -6,11 +6,13 @@ var app = angular.module('simpleHome', [
   'simpleHome.home',
   'simpleHome.luci',
   'simpleHome.temperature',
+  'simpleHome.allarme',
   'simpleHome.settings',
   'simpleHome.version',
   'simpleHome.onLoad',
   'simpleHome.luciService',
-  'simpleHome.temperatureService'
+  'simpleHome.temperatureService',
+  'simpleHome.allarmeService'
 ]);
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
@@ -20,13 +22,14 @@ app.config(['$routeProvider', function($routeProvider) {
     }
 ]);
 
+// For resolve
 app.run(['$rootScope', function($root) {
-  $root.$on('$routeChangeStart', function(e, curr, prev) { 
+  $root.$on('$routeChangeStart', function(e, curr, prev) {
     if (curr.$$route && curr.$$route.resolve) {
       $("#modalLoading").modal("show");
     }
   });
-  $root.$on('$routeChangeSuccess', function(e, curr, prev) { 
+  $root.$on('$routeChangeSuccess', function(e, curr, prev) {
       setTimeout(function(){
         $("#modalLoading").modal("hide");
     }, 500);

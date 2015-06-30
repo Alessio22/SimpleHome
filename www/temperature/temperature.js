@@ -5,37 +5,37 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   	$routeProvider.when('/temperature', {
     	templateUrl: 'temperature/temperature.html',
-    	controller: 'TemperatureCtrl',
-    	resolve: {
-        	temperatura: function(TemperatureService) {
-            	return TemperatureService.stato();
-			}
-  		}
+    	controller: 'TemperatureCtrl as ctrl'
   	});
 }])
 
-.controller('TemperatureCtrl', ['$rootScope', '$scope', 'TemperatureService', 'temperatura', function($rootScope, $scope, TemperatureService, temperatura) {
-	$rootScope.isHome = false;
-	$scope.temperatura = "";
-	$scope.temperaturaSet = "";
+.controller('TemperatureCtrl', ['$rootScope', 'TemperatureService', function($root, TemperatureService) {
+	var ctrl = this;
 
-	var data = temperatura.data;
-	var response  = x2js.xml_str2json(data).response;
-	$scope.temperatura = response.temp0;
-	$scope.temperaturaSet = response.setpoint0;
+	$root.isHome = false;
+	ctrl.temperatura = {
+      temperatura: '',
+      temperaturaSet: ''
+  };
 
-	TemperatureService.stato();
+	TemperatureService.stato(ctrl.temperatura);
 
-	$scope.alza = function() {
+	ctrl.alza = function() {
 		TemperatureService.alza();
+		setTimeout(function(){
+			ctrl.refresh();
+		}, 500);
 	};
 
-	$scope.abbassa = function() {
+	ctrl.abbassa = function() {
 		TemperatureService.abbassa();
+		setTimeout(function(){
+				ctrl.refresh();
+		}, 500);
 	};
 
-	$scope.refresh = function() {
-		TemperatureService.stato();
+	ctrl.refresh = function() {
+		TemperatureService.stato(ctrl.temperatura);
 	};
 
 }]);
