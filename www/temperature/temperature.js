@@ -3,80 +3,39 @@
 angular.module('simpleHome.temperature', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/temperature', {
-    templateUrl: 'temperature/temperature.html',
-    controller: 'TemperatureCtrl'
-  });
+  	$routeProvider.when('/temperature', {
+    	templateUrl: 'temperature/temperature.html',
+    	controller: 'TemperatureCtrl as ctrl'
+  	});
 }])
 
-.controller('TemperatureCtrl', function($rootScope, $scope, $http) {
+.controller('TemperatureCtrl', ['$rootScope', 'TemperatureService', function($root, TemperatureService) {
+	var ctrl = this;
 
-	function update() {
-		$("#refresh").addClass("fa-spin");
-		var reqStato = {
-			method: 'POST', 
-			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.xml',
-			headers: {
-		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
-		    }
-		};
-		$http(reqStato).success(function(data, status, headers, config) {
-			var response  = x2js.xml_str2json(data).response;
-			$scope.temperatura = response.temp0;
-			$scope.temperaturaSet = response.setpoint0;
+	$root.isHome = false;
+	ctrl.temperatura = {
+      temperatura: '',
+      temperaturaSet: ''
+  };
 
-			setTimeout(function(){
-				$("#refresh").removeClass("fa-spin");
-			}, 500);
-		});
-	}
+	TemperatureService.stato(ctrl.temperatura);
 
-	$rootScope.isHome = false;
-	$scope.temperatura = "";
-	$scope.temperaturaSet = "";
-
-	update();
-
-	$scope.alza = function() {
-		var reqCambioStato = {
-			method: 'POST', 
-			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.cgi?command=1&num_termo=0', 
-			headers: {
-		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
-		    }
-		};
-		$http(reqCambioStato).success(function(data, status, headers, config) {
-			console.log(data);
-			setTimeout(function(){
-				update();
-			}, 500);
-		}).
-		error(function(data, status, headers, config) {
-			alert('error');
-		});
+	ctrl.alza = function() {
+		TemperatureService.alza();
+		setTimeout(function(){
+			ctrl.refresh();
+		}, 500);
 	};
 
-	$scope.abbassa = function() {
-		var reqCambioStato = {
-			method: 'POST', 
-			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/termo.cgi?command=0&num_termo=0', 
-			headers: {
-		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
-		    }
-		};
-		$http(reqCambioStato).success(function(data, status, headers, config) {
-			console.log(data);
-			setTimeout(function(){
-				update();
-			}, 500);
-		}).
-		error(function(data, status, headers, config) {
-			alert('error');
-		});
+	ctrl.abbassa = function() {
+		TemperatureService.abbassa();
+		setTimeout(function(){
+				ctrl.refresh();
+		}, 500);
 	};
 
-	$scope.refresh = function() {
-		update();
+	ctrl.refresh = function() {
+		TemperatureService.stato(ctrl.temperatura);
 	};
 
-});
+}]);

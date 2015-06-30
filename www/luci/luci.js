@@ -3,83 +3,31 @@
 angular.module('simpleHome.luci', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/luci', {
-    templateUrl: 'luci/luci.html',
-    controller: 'LuciCtrl'
-  });
+	$routeProvider.when('/luci', {
+  	templateUrl: 'luci/luci.html',
+  	controller: 'LuciCtrl as ctrl'
+	});
 }])
 
-.controller('LuciCtrl', function($rootScope, $scope, $http) {
+.controller('LuciCtrl', ['$rootScope','LuciService', function($root, LuciService) {
+	var ctrl = this;
+	$root.isHome = false;
 
-	function update() {
-		$("#refresh").addClass("fa-spin");
-		var reqStato = {
-			method: 'POST', 
-			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.xml',
-			headers: {
-		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
-		    }
-		};
-		$http(reqStato).success(function(data, status, headers, config) {
-			var response  = x2js.xml_str2json(data).response;
-			for(var i = 0;i < $scope.luci.length; i++){
-				$scope.luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-success' : 'btn-default' ;
-			}
-			setTimeout(function(){
-				$("#refresh").removeClass("fa-spin");
-			}, 500);
-		});
-	}
+	ctrl.luci = [];
 
-	$rootScope.isHome = false;
-	$scope.luci = [];
-	var reqDescrizioni = {
-		method: 'POST', 
-		url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci_desc.xml',
-		headers: {
-	    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
-	    }
-	};
-	$http(reqDescrizioni).success(function(data, status, headers, config) {
-		var response = x2js.xml_str2json(data).response;
+	LuciService.getLuci(ctrl.luci);
 
-		for(var i=0; i<46; i++) {
-			var desc = response["desc"+i];
-			if(desc!="") {
-				$scope.luci.push({"id":i, "desc": desc, "stato": 0});
-			}
-		}
-		update();
-  	}).
-  	error(function(data, status, headers, config) {
-	  	alert('error');
-	});
+	LuciService.statoLuci(ctrl.luci);
 
-	$scope.camboStato = function(id) {
-		var reqCambioStato = {
-			method: 'POST', 
-			url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.cgi?luce='+id, 
-			headers: {
-		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)	
-		    }
-		};
-		$http(reqCambioStato).success(function(data, status, headers, config) {
-			console.log(data);
-			setTimeout(function(){
-				update();
-			}, 500);
-			setTimeout(function(){
-				update();
-			}, 500);
-		}).
-		error(function(data, status, headers, config) {
-			alert('error');
-		});
+	ctrl.camboStato = function(id) {
+		LuciService.cambioStatoLuci(id);
+		setTimeout(function(){
+			ctrl.refresh();
+		}, 1000);
 	};
 
-	$scope.refresh = function() {
-		update();
+	ctrl.refresh = function() {
+		LuciService.statoLuci(ctrl.luci);
 	};
 
-});
-
+}]);
