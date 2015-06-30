@@ -8,24 +8,23 @@ body {
 }
 
 h1, h2 {
-	color: #43a047;
+	color: #1b5e20;
 	margin-top: 10px;
   margin-bottom: 10px;
 }
 
 hr {
-	background-color: #43a047;
+	background-color: #1b5e20;
 	border-width: 0;
 }
 
 p {
-	color: #43a047;
+	color: #1b5e20;
 	font-weight: bold;
 	font-size: 15px;
 }
 
 strong {
-	color: #43a047;
 	font-weight: bold;
 	font-size: 25px;
 }
@@ -35,9 +34,10 @@ strong {
 	padding: 10px;
 	border-radius: 5px;
 	background-color: #FFFFFF;
+	font-size: 16px;
 }
 
-#refresh {
+#nav-btn {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -48,6 +48,7 @@ strong {
 
 #temperaturaSet {
 	margin-top: 10px;
+	color: #1b5e20;
 }
 
 label.togglelabel {

@@ -1,36 +1,36 @@
 <div class="my-jumbotron shadow-z-1">
-<div class="inputs">
-  <label for="alias1">Alias</label>
-  <input type="text" ng-model="cfg1.alias" class="form-control" id="alias1" placeholder="Enter alias">
+  <div class="inputs">
+    <label for="alias1">Alias</label>
+    <input type="text" ng-model="cfg1.alias" class="form-control" id="alias1" placeholder="Enter alias">
 
-  <label for="host1">Host</label>
-  <input type="hidden" ng-model="cfg1.prot" value="HTTP://">
-  <input ng-model="host1" type="text" class="form-control" id="host1" placeholder="Enter host">
+    <label for="host1">Host</label>
+    <input type="hidden" ng-model="cfg1.prot" value="HTTP://">
+    <input ng-model="host1" type="text" class="form-control" id="host1" placeholder="Enter host">
 
-  <label for="username1">Username</label>
-  <input ng-model="cfg1.username" type="text" class="form-control" id="username1" placeholder="Enter username">
+    <label for="username1">Username</label>
+    <input ng-model="cfg1.username" type="text" class="form-control" id="username1" placeholder="Enter username">
 
-  <label for="password1">Password</label>
-  <input ng-model="cfg1.password" type="password" class="form-control" id="password1" placeholder="Password">
+    <label for="password1">Password</label>
+    <input ng-model="cfg1.password" type="password" class="form-control" id="password1" placeholder="Password">
+  </div>
 </div>
+<br />
+<div class="my-jumbotron shadow-z-1">
 
-<hr />
-
-<div class="inputs">
-  <label for="alias2">Alias</label>
-  <input ng-model="cfg2.alias" type="text" class="form-control" id="alias2" placeholder="Enter alias">
+  <div class="inputs">
+    <label for="alias2">Alias</label>
+    <input ng-model="cfg2.alias" type="text" class="form-control" id="alias2" placeholder="Enter alias">
 
 
-  <label for="host2">Host</label>
-  <input type="hidden" ng-model="cfg2.prot" value="HTTP://">
-  <input ng-model="host2" type="text" class="form-control" id="host2" placeholder="Enter host">
+    <label for="host2">Host</label>
+    <input type="hidden" ng-model="cfg2.prot" value="HTTP://">
+    <input ng-model="host2" type="text" class="form-control" id="host2" placeholder="Enter host">
 
-  <label for="username2">Username</label>
-  <input ng-model="cfg2.username" type="text" class="form-control" id="username2" placeholder="Enter username">
+    <label for="username2">Username</label>
+    <input ng-model="cfg2.username" type="text" class="form-control" id="username2" placeholder="Enter username">
 
-  <label for="password2">Password</label>
-  <input ng-model="cfg2.password" type="password" class="form-control" id="password2" placeholder="Password">
+    <label for="password2">Password</label>
+    <input ng-model="cfg2.password" type="password" class="form-control" id="password2" placeholder="Password">
+  </div>
 </div>
-
-<button ng-click="updateConfig()" class="btn btn-material-green-600 btn-raised btn-block">Salva</button>
-</div>
+<button ng-click="updateConfig()" class="btn btn-material-green-900 btn-raised btn-block">Salva</button>
