@@ -16,8 +16,9 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	ctrl.luci = [];
 
 	LuciService.getLuci(ctrl.luci);
-
-	LuciService.statoLuci(ctrl.luci);
+	setTimeout(function(){
+		ctrl.refresh();
+	}, 1000);
 
 	ctrl.camboStato = function(id) {
 		LuciService.cambioStatoLuci(id);

@@ -14,12 +14,13 @@ var app = angular.module('simpleHome', [
   'simpleHome.temperatureService',
   'simpleHome.allarmeService'
 ]);
+
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/home'});
 }])
 .config(['$httpProvider', function($httpProvider) {
-        $httpProvider.defaults.useXDomain = true;
-    }
+    $httpProvider.defaults.useXDomain = true;
+  }
 ]);
 
 // For resolve
@@ -36,9 +37,15 @@ app.run(['$rootScope', function($root) {
   });
 }]);
 
+// For XML to JSON
 var x2js = new X2JS();
+
+// For base64
 if (typeof btoa === "undefined") {
     _keyStr = Base64._keyStr;
     btoa = Base64.encode;
     atob = Base64.decode;
 }
+
+// For bootstrap material
+$.material.init();

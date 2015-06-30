@@ -1,8 +1,8 @@
 <div id="refresh">
 	<i class="fa fa-refresh fa-2x" ng-click="ctrl.refresh()"></i>
 </div>
-<div class="col-xs-4 col-sm-3 animate-repeat text-center" ng-repeat="luce in ctrl.luci">
-	<button class="btn" ng-class="luce.stato" ng-click="ctrl.camboStato(luce.id)">
+<div class="col-xs-4 animate-repeat text-center" ng-repeat="luce in ctrl.luci">
+	<button class="btn btn-fab btn-raised" ng-class="luce.stato" ng-click="ctrl.camboStato(luce.id)">
 		<i class="fa fa-lightbulb-o"></i>
 	</button>
 	<p>{{luce.desc}}</p>

@@ -36,11 +36,9 @@ angular.module('simpleHome.luciService', [])
 	  	promise.success(function(data, status, headers, conf) {
 	  		var response  = x2js.xml_str2json(data).response;
 				for(var i = 0;i < luci.length; i++){
-					luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-success' : 'btn-default' ;
+					luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-material-green-600' : 'btn-material-grey-300' ;
 				}
-				setTimeout(function(){
-					$("#refresh").removeClass("fa-spin");
-				}, 500);
+				$("#refresh").removeClass("fa-spin");
 	    	return luci;
 			});
 		 	return promise;

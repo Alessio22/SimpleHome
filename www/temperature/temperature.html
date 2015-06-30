@@ -1,19 +1,19 @@
 <div id="refresh">
 	<i class="fa fa-refresh fa-2x" ng-click="ctrl.refresh()"></i>
 </div>
-<div class="my-jumbotron text-center">
+<div class="my-jumbotron text-center shadow-z-1">
 	<div class="page-header">
 	  <h1>Temperatura <small><br />Temperatura effettiva: {{ctrl.temperatura.temperatura}}</small></h1>
 	</div>
 	<div class="row">
 		<div class="col-xs-4">
-			<button class="btn btn-default" ng-class="luce.stato" ng-click="ctrl.abbassa()"><i class="fa fa-chevron-down"></i></button>
+			<button class="btn btn-fab btn-raised btn-material-grey-300" ng-class="luce.stato" ng-click="ctrl.abbassa()"><i class="fa fa-chevron-down"></i></button>
 		</div>
-		<div class="col-xs-4">
+		<div id="temperaturaSet" class="col-xs-4">
 			<strong>{{ctrl.temperatura.temperaturaSet}}</strong>
 		</div>
 		<div class="col-xs-4">
-		<button class="btn btn-default" ng-class="luce.stato" ng-click="ctrl.alza()"><i class="fa fa-chevron-up"></i></button>
+		<button class="btn btn-fab btn-raised btn-material-grey-300" ng-class="luce.stato" ng-click="ctrl.alza()"><i class="fa fa-chevron-up"></i></button>
 		</div>
 	</div>
 </div>
