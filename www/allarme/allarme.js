@@ -9,9 +9,9 @@ angular.module('simpleHome.allarme', ['ngRoute'])
   	});
 }])
 
-.controller('AllarmeCtrl', ['$rootScope','AllarmeService', function($root, AllarmeService) {
+.controller('AllarmeCtrl', ['$rootScope','AllarmeService', function($rootScope, AllarmeService) {
   var ctrl = this;
-	$root.isHome = false;
+	$rootScope.isHome = false;
 
   ctrl.allarme = {
     statoArea8: 0,
@@ -21,14 +21,14 @@ angular.module('simpleHome.allarme', ['ngRoute'])
 
   AllarmeService.stato(ctrl.allarme);
 
-  ctrl.refresh = function() {
+	$rootScope.$on('toolbar:refresh', function(e) {
 		AllarmeService.stato(ctrl.allarme);
-	};
+	});
 
   ctrl.camboStato = function(id) {
 		AllarmeService.cambioStato(id);
 		setTimeout(function(){
-			AllarmeService.stato();
+			AllarmeService.stato(ctrl.allarme);
 		}, 1000);
 	};
 

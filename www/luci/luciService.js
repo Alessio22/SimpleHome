@@ -6,7 +6,7 @@ angular.module('simpleHome.luciService', [])
   	getLuci: function(luci) {
     	var promise = $http({
 				method: 'POST',
-				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci_desc.xml',
+				url: "http://"+$rootScope.cfg.host+'user/luci_desc.xml',
 				headers: {
 			  	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
 		    }
@@ -28,7 +28,7 @@ angular.module('simpleHome.luciService', [])
 			$("#refresh").addClass("fa-spin");
 			var promise = $http( {
 				method: 'POST',
-				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.xml',
+				url: "http://"+$rootScope.cfg.host+'user/luci.xml',
 				headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
 		    }
@@ -47,7 +47,7 @@ angular.module('simpleHome.luciService', [])
 		cambioStatoLuci: function(id) {
 			var promise = $http({
 				method: 'POST',
-				url: $rootScope.cfg.prot+$rootScope.cfg.host+'user/luci.cgi?luce='+id,
+				url: "http://"+$rootScope.cfg.host+'user/luci.cgi?luce='+id,
 				headers: {
 		    	'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
 		    }

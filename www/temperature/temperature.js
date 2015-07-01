@@ -9,10 +9,10 @@ angular.module('simpleHome.temperature', ['ngRoute'])
   	});
 }])
 
-.controller('TemperatureCtrl', ['$rootScope', 'TemperatureService', function($root, TemperatureService) {
+.controller('TemperatureCtrl', ['$rootScope', 'TemperatureService', function($rootScope, TemperatureService) {
 	var ctrl = this;
 
-	$root.isHome = false;
+	$rootScope.isHome = false;
 	ctrl.temperatura = {
       temperatura: '',
       temperaturaSet: ''
@@ -23,19 +23,19 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 	ctrl.alza = function() {
 		TemperatureService.alza();
 		setTimeout(function(){
-			ctrl.refresh();
+  		TemperatureService.stato(ctrl.temperatura);
 		}, 500);
 	};
 
 	ctrl.abbassa = function() {
 		TemperatureService.abbassa();
 		setTimeout(function(){
-				ctrl.refresh();
+  		TemperatureService.stato(ctrl.temperatura);
 		}, 500);
 	};
 
-	ctrl.refresh = function() {
+	$rootScope.$on('toolbar:refresh', function(e) {
 		TemperatureService.stato(ctrl.temperatura);
-	};
+	});
 
 }]);

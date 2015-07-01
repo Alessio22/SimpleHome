@@ -1,6 +1,9 @@
-<div id="nav-btn">
-	<i class="fa fa-refresh fa-2x" ng-click="ctrl.refresh()"></i>
-</div>
+<toolbar
+  icon="fa-arrow-left"
+  label="Luci"
+  refresh="true" >
+</toolbar>
+
 <div class="col-xs-4 animate-repeat text-center" ng-repeat="luce in ctrl.luci">
 	<button class="btn btn-fab btn-raised" ng-class="luce.stato" ng-click="ctrl.camboStato(luce.id)">
 		<i class="fa fa-lightbulb-o"></i>

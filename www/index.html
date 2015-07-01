@@ -30,42 +30,34 @@
   <script type="text/javascript" src="bootstrap_material/js/ripples.min.js"></script>
   <script type="text/javascript" src="bootstrap_material/js/ripples.min.js"></script>
   <script type="text/javascript" src="xml2json.min.js"></script>
-
-  <!-- script type="text/javascript" src="cordova.js"></script -->
-
+<!--
+  <script type="text/javascript" src="cordova.js"></script>
+-->
 </head>
 <body on-load>
-
-  <nav class="navbar navbar-material-green-900 navbar-fixed-top shadow-z-1">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#home">SimpleHome</a>
-      </div>
-    </div>
-  </nav>
 
   <div class="container">
     <div ng-view></div>
   </div>
 
-<div id="modalLoading" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="my-flex" >
-          <div class="text-right spinner">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1" width="48px" height="48px" viewBox="0 0 28 28">
-              <g class="qp-circular-loader">
-               <path class="qp-circular-loader-path" fill="none" d="M 14,1.5 A 12.5,12.5 0 1 1 1.5,14" stroke-linecap="round" />
-              </g>
-            </svg>
+  <div id="modalLoading" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="my-flex" >
+            <div class="text-right spinner">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1" width="48px" height="48px" viewBox="0 0 28 28">
+                <g class="qp-circular-loader">
+                 <path class="qp-circular-loader-path" fill="none" d="M 14,1.5 A 12.5,12.5 0 1 1 1.5,14" stroke-linecap="round" />
+                </g>
+              </svg>
+            </div>
+            <div>Caricamento ...</div>
           </div>
-          <div>Caricamento ...</div>
-        </div>
-      </div><!-- /.modal-body -->
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div><!-- /.modal-body -->
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
@@ -76,16 +68,17 @@
   <script src="app.js"></script>
   <script src="home/home.js"></script>
   <script src="luci/luci.js"></script>
+  <script src="luci/luciService.js"></script>
   <script src="temperature/temperature.js"></script>
+  <script src="temperature/temperatureService.js"></script>
   <script src="allarme/allarme.js"></script>
+  <script src="allarme/allarmeService.js"></script>
   <script src="settings/settings.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
   <script src="components/onLoad/onLoad-directive.js"></script>
-  <script src="components/services/luciService.js"></script>
-  <script src="components/services/temperatureService.js"></script>
-  <script src="components/services/allarmeService.js"></script>
+  <script src="components/toolbar/toolbar-directive.js"></script>
 
 </body>
 </html>

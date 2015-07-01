@@ -3,6 +3,7 @@
 // Declare app level module which depends on views, and components
 var app = angular.module('simpleHome', [
   'ngRoute',
+  'simpleHome.toolbarLabel',
   'simpleHome.home',
   'simpleHome.luci',
   'simpleHome.temperature',

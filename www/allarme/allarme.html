@@ -1,48 +1,44 @@
-
-
-<div id="refresh">
-	<i class="fa fa-refresh fa-2x" ng-click="ctrl.refresh()"></i>
-</div>
-
-<div class="page-header">
-	<h2>Allarme</h2>
-</div>
+<toolbar
+  icon="fa-arrow-left"
+  label="Allarme"
+  refresh="true" >
+</toolbar>
 
 <div class="list-group">
-    <div class="list-group-item">
+  <div class="list-group-item">
 
-					<div class="togglebutton togglebutton-material-green-900">
-						Allarme
-					  <label class="togglelabel">
-					      <input checked type="checkbox" />
-								<span class="toggle"></span>
-					  </label>
-					</div>
+				<div class="togglebutton togglebutton-material-green-900">
+					Allarme
+				  <label class="togglelabel">
+				      <input type="checkbox" ng-model="ctrl.allarme.statoArea8" ng-change="ctrl.camboStato('8')" />
+							<span class="toggle"></span>
+				  </label>
+				</div>
 
-    </div>
-    <div class="list-group-separator"></div>
-    <div class="list-group-item">
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
 
-					<div class="togglebutton togglebutton-material-green-900">
-						Allarme P1
-					  <label class="togglelabel">
-					      <input type="checkbox">
-								<span class="toggle"></span>
-					  </label>
-					</div>
+				<div class="togglebutton togglebutton-material-green-900">
+					Allarme P1
+				  <label class="togglelabel">
+				      <input type="checkbox" ng-model="ctrl.allarme.statoAreaP18" ng-change="ctrl.camboStato('P18')" />
+							<span class="toggle"></span>
+				  </label>
+				</div>
 
-    </div>
-    <div class="list-group-separator"></div>
-    <div class="list-group-item">
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
 
-					<div class="togglebutton togglebutton-material-green-900">
-						Allarme P2
-						<label class="togglelabel">
-								<input type="checkbox">
-								<span class="toggle"></span>
-						</label>
-					</div>
+				<div class="togglebutton togglebutton-material-green-900">
+					Allarme P2
+					<label class="togglelabel">
+							<input type="checkbox"ng-model="ctrl.allarme.statoAreaP28" ng-change="ctrl.camboStato('P28')" />
+							<span class="toggle"></span>
+					</label>
+				</div>
 
-    </div>
-    <div class="list-group-separator"></div>
+  </div>
+  <div class="list-group-separator"></div>
 </div>

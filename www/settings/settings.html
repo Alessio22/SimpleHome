@@ -1,10 +1,14 @@
+<toolbar
+  icon="fa-arrow-left"
+  label="Impostazioni" >
+</toolbar>
+
 <div class="my-jumbotron shadow-z-1">
   <div class="inputs">
     <label for="alias1">Alias</label>
     <input type="text" ng-model="cfg1.alias" class="form-control" id="alias1" placeholder="Enter alias">
 
     <label for="host1">Host</label>
-    <input type="hidden" ng-model="cfg1.prot" value="HTTP://">
     <input ng-model="host1" type="text" class="form-control" id="host1" placeholder="Enter host">
 
     <label for="username1">Username</label>
@@ -23,7 +27,6 @@
 
 
     <label for="host2">Host</label>
-    <input type="hidden" ng-model="cfg2.prot" value="HTTP://">
     <input ng-model="host2" type="text" class="form-control" id="host2" placeholder="Enter host">
 
     <label for="username2">Username</label>
