@@ -3,7 +3,7 @@
 angular.module('simpleHome.luciService', [])
 .factory('LuciService', ['$rootScope','$http', function($rootScope,$http) {
 	return {
-  	getLuci: function(luci) {
+  	getLuci: function() {
     	var promise = $http({
 				method: 'POST',
 				url: "http://"+$rootScope.cfg.host+'user/luci_desc.xml',
@@ -12,14 +12,7 @@ angular.module('simpleHome.luciService', [])
 		    }
 			});
     	promise.success(function(data, status, headers, conf) {
-				var response = x2js.xml_str2json(data).response;
-				for(var i=0; i<46; i++) {
-					var desc = response["desc"+i];
-					if(desc!="") {
-						luci.push({"id":i, "desc": desc, "stato": 0});
-					}
-				}
-				return luci;
+				return data;
     	});
   		return promise;
  		},
@@ -36,7 +29,7 @@ angular.module('simpleHome.luciService', [])
 	  	promise.success(function(data, status, headers, conf) {
 	  		var response  = x2js.xml_str2json(data).response;
 				for(var i = 0;i < luci.length; i++){
-					luci[i].stato = response.stato.charAt(i) == 1 ? 'btn-material-green-900' : 'btn-material-grey-300' ;
+					luci[i].stato = response.stato.charAt(i);
 				}
 				$("#refresh").removeClass("fa-spin");
 	    	return luci;

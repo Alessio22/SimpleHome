@@ -4,7 +4,6 @@ angular.module('simpleHome.allarmeService', [])
 .factory('AllarmeService', ['$rootScope','$http', function($rootScope, $http) {
 	return {
     stato: function(allarme) {
-      $("#refresh").addClass("fa-spin");
       var promise = $http({
         method: 'POST',
         url: "http://"+$rootScope.cfg.host+'user/aree_intr.xml',
@@ -14,12 +13,11 @@ angular.module('simpleHome.allarmeService', [])
         }
       });
       promise.success(function(data, status, headers, conf) {
-        $("#refresh").removeClass("fa-spin");
-        var response = x2js.xml_str2json(data).response
-        allarme.statoArea8 = response.statoArea8 == 1;
-        allarme.statoAreaP18 = response.statoAreaP18 == 1;
-        allarme.statoAreaP28 = response.statoAreaP28 == 1;
-        return allarme;
+				var response = x2js.xml_str2json(data).response;
+				allarme.statoArea8 = response.statoArea8 == 1;
+				allarme.statoAreaP18 = response.statoAreaP18 == 1;
+				allarme.statoAreaP28 = response.statoAreaP28 == 1;
+        return data;
       });
       return promise;
     },

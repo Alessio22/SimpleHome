@@ -5,7 +5,7 @@
 </toolbar>
 
 <div class="col-xs-4 animate-repeat text-center" ng-repeat="luce in ctrl.luci">
-	<button class="btn btn-fab btn-raised" ng-class="luce.stato" ng-click="ctrl.camboStato(luce.id)">
+	<button class="btn btn-fab btn-raised {{luce.stato == 1 ? 'btn-material-green-900' : 'btn-material-grey-300'}}" ng-click="ctrl.camboStato(luce.id)">
 		<i class="fa fa-lightbulb-o"></i>
 	</button>
 	<p>{{luce.desc}}</p>

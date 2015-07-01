@@ -32,8 +32,8 @@ app.run(['$rootScope', function($root) {
     }
   });
   $root.$on('$routeChangeSuccess', function(e, curr, prev) {
-      setTimeout(function(){
-        $("#modalLoading").modal("hide");
+    setTimeout(function(){
+      $("#modalLoading").modal("hide");
     }, 500);
   });
 }]);
