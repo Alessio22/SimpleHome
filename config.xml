@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0"
-    id="it.SimpleHome" version="1.0.3" android-versionCode="1" >
-    
+    id="it.SimpleHome" version="1.0.4" android-versionCode="1" >
+
     <name>SimpleHome</name>
     <description>
         SimpleHome description
@@ -17,7 +17,7 @@
     <preference name="ShowTitle" value="false"/>
     <preference name="LogLevel" value="ERROR"/>
     <preference name="KeepRunning" value="false"/>
-	
+
     <platform name="android">
         <icon src="icons/android/icon-36-ldpi.png" width="36" height="36" />
         <icon src="icons/android/icon-48-mdpi.png" width="48" height="48" />
