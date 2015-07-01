@@ -19,7 +19,7 @@ angular.module('simpleHome.settings', ['ngRoute'])
 	$scope.host2 = $scope.cfg2==undefined?'':$scope.cfg2.host;
 
 	$scope.updateConfig = function() {
-		// TODO validazione 
+		// TODO validazione
 
 		if($scope.host1.substr($scope.host1.length - 1) != "/") {
 			$scope.host1 += "/";
@@ -38,17 +38,15 @@ angular.module('simpleHome.settings', ['ngRoute'])
 
 
 		if(settings.profile == 0) {
-		    $rootScope.cfg.alias = settings.cfg[0].alias==undefined?'':settings.cfg[0].alias;
-		    $rootScope.cfg.prot = settings.cfg[0].prot==undefined?'':settings.cfg[0].prot;
-		    $rootScope.cfg.host = settings.cfg[0].host==undefined?'':settings.cfg[0].host;
+	    $rootScope.cfg.alias = settings.cfg[0].alias==undefined?'':settings.cfg[0].alias;
+	    $rootScope.cfg.host = settings.cfg[0].host==undefined?'':settings.cfg[0].host;
 			$rootScope.cfg.username = settings.cfg[0].username==undefined?'':settings.cfg[0].username;
-			$rootScope.cfg.password = settings.cfg[0].password==undefined?'':settings.cfg[0].password;  
+			$rootScope.cfg.password = settings.cfg[0].password==undefined?'':settings.cfg[0].password;
 		} else {
 		    $rootScope.cfg.alias = settings.cfg[1].alias==undefined?'':settings.cfg[1].alias;
-		    $rootScope.cfg.prot = settings.cfg[1].prot==undefined?'':settings.cfg[1].prot;
 		    $rootScope.cfg.host = settings.cfg[1].host==undefined?'':settings.cfg[1].host;
 			$rootScope.cfg.username = settings.cfg[1].username==undefined?'':settings.cfg[1].username;
-			$rootScope.cfg.password = settings.cfg[1].password==undefined?'':settings.cfg[1].password;  
+			$rootScope.cfg.password = settings.cfg[1].password==undefined?'':settings.cfg[1].password;
 		}
 
 		$location.path('/');

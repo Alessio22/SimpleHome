@@ -9,25 +9,26 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	});
 }])
 
-.controller('LuciCtrl', ['$rootScope','LuciService', function($root, LuciService) {
+.controller('LuciCtrl', ['$rootScope','LuciService', function($rootScope, LuciService) {
 	var ctrl = this;
-	$root.isHome = false;
+	$rootScope.isHome = false;
 
 	ctrl.luci = [];
 
 	LuciService.getLuci(ctrl.luci);
-
-	LuciService.statoLuci(ctrl.luci);
+	setTimeout(function(){
+		LuciService.statoLuci(ctrl.luci);
+	}, 1000);
 
 	ctrl.camboStato = function(id) {
 		LuciService.cambioStatoLuci(id);
 		setTimeout(function(){
-			ctrl.refresh();
+			LuciService.statoLuci(ctrl.luci);
 		}, 1000);
 	};
 
-	ctrl.refresh = function() {
+	$rootScope.$on('toolbar:refresh', function(e) {
 		LuciService.statoLuci(ctrl.luci);
-	};
+	});
 
 }]);
