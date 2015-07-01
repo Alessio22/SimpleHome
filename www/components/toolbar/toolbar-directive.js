@@ -11,7 +11,7 @@ angular.module('simpleHome.toolbarLabel', [])
       label: '@',
       refresh: '@'
     },
-    templateUrl: '/components/toolbar/template.html',
+    templateUrl: 'components/toolbar/template.html',
     controller: function($scope) {
       $scope.clickRefresh = function() {
         $rootScope.$broadcast('toolbar:refresh');
