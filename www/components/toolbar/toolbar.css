@@ -28,7 +28,6 @@ body {
 	width: 5.6rem;
 	line-height: 6.2rem;
 	font-size: 2.5rem;
-	font-weight: normal;
 	text-align: center;
 }
 
@@ -38,13 +37,15 @@ body {
 	height: 6.2rem;
 	line-height: 6.2rem;
 	font-size: 2.5rem;
+	font-weight: normal;
 }
 
 .toolbar .toolbar-label:first-child {
 	flex: 1;
 	display: block;
-	height: 5.6rem;
-	line-height: 5.6rem;
-	font-size: 2rem;
+	height: 6.2rem;
+	line-height: 6.2rem;
+	font-size: 2.5rem;
 	margin-left: 0.8rem;
+	font-weight: normal;
 }
