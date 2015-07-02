@@ -22,10 +22,12 @@ angular.module('simpleHome.temperature', ['ngRoute'])
       temperatura: '',
       temperaturaSet: ''
   };
-  var response = x2js.xml_str2json(temperatura.data).response;
-  ctrl.temperatura.temperatura = response.temp0;
-  ctrl.temperatura.temperaturaSet = response.setpoint0;
-
+	var json = x2js.xml_str2json(temperatura.data);
+	if(json) {
+    var response = json.response;
+    ctrl.temperatura.temperatura = response.temp0;
+    ctrl.temperatura.temperaturaSet = response.setpoint0;
+  }
 	TemperatureService.stato(ctrl.temperatura);
 
 	ctrl.alza = function() {
@@ -38,6 +40,7 @@ angular.module('simpleHome.temperature', ['ngRoute'])
 	ctrl.abbassa = function() {
 		TemperatureService.abbassa();
 		setTimeout(function(){
+  		$("#modalLoading").modal("show");
   		TemperatureService.stato(ctrl.temperatura);
 		}, 1000);
 	};

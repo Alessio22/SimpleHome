@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('simpleHome.toolbarLabel', [])
+angular.module('simpleHome.toolbar', [])
 
 .directive('toolbar', ['$rootScope', function($rootScope) {
   return {
@@ -11,7 +11,7 @@ angular.module('simpleHome.toolbarLabel', [])
       label: '@',
       refresh: '@'
     },
-    templateUrl: 'components/toolbar/template.html',
+    templateUrl: 'components/toolbar/toolbar.html',
     controller: function($scope) {
       $scope.clickRefresh = function() {
         $rootScope.$broadcast('toolbar:refresh');

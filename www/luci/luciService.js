@@ -18,7 +18,6 @@ angular.module('simpleHome.luciService', [])
  		},
 
 		statoLuci: function(luci) {
-			$("#refresh").addClass("fa-spin");
 			var promise = $http( {
 				method: 'POST',
 				url: "http://"+$rootScope.cfg.host+'user/luci.xml',
@@ -27,11 +26,16 @@ angular.module('simpleHome.luciService', [])
 		    }
 			});
 	  	promise.success(function(data, status, headers, conf) {
-	  		var response  = x2js.xml_str2json(data).response;
-				for(var i = 0;i < luci.length; i++){
-					luci[i].stato = response.stato.charAt(i);
+				var json = x2js.xml_str2json(data);
+				if(json) {
+		  		var response = json.response;
+					for(var i = 0;i < luci.length; i++){
+						luci[i].stato = response.stato.charAt(i);
+					}
 				}
-				$("#refresh").removeClass("fa-spin");
+				setTimeout(function(){
+		      $("#modalLoading").modal("hide");
+		    }, 500);
 	    	return luci;
 			});
 		 	return promise;

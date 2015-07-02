@@ -12,9 +12,15 @@ angular.module('simpleHome.temperatureService', [])
 			  }
 			});
     	promise.success(function(data, status, headers, conf) {
-				var response = x2js.xml_str2json(data).response;
-			  temperatura.temperatura = response.temp0;
-			  temperatura.temperaturaSet = response.setpoint0;
+				var json = x2js.xml_str2json(data);
+				if(json) {
+					var response = json.response;
+				  temperatura.temperatura = response.temp0;
+				  temperatura.temperaturaSet = response.setpoint0;
+				}
+				setTimeout(function(){
+		      $("#modalLoading").modal("hide");
+		    }, 500);
 		    return data;
 			});
 	 		return promise;

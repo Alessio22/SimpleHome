@@ -19,14 +19,16 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	$rootScope.isHome = false;
 
 	ctrl.luci = [];
-	var response = x2js.xml_str2json(luci.data).response;
-	for(var i=0; i<46; i++) {
-		var desc = response["desc"+i];
-		if(desc!="") {
-			ctrl.luci.push({"id":i, "desc": desc, "stato": 0});
+	var json = x2js.xml_str2json(luci.data);
+	if(json) {
+		var response = json.response;
+		for(var i=0; i<46; i++) {
+			var desc = response["desc"+i];
+			if(desc!="") {
+				ctrl.luci.push({"id":i, "desc": desc, "stato": 0});
+			}
 		}
 	}
-
 	LuciService.statoLuci(ctrl.luci);
 
 	ctrl.camboStato = function(id) {
@@ -37,6 +39,7 @@ angular.module('simpleHome.luci', ['ngRoute'])
 	};
 
 	$rootScope.$on('toolbar:refresh', function(e) {
+		$("#modalLoading").modal("show");
 		LuciService.statoLuci(ctrl.luci);
 	});
 

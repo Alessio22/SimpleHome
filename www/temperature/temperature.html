@@ -1,10 +1,10 @@
 <toolbar
   icon="fa-arrow-left"
-  label="Temperature"
+  label="Temperatura"
   refresh="true" >
 </toolbar>
 
-<div class="my-jumbotron text-center shadow-z-1">
+<!-- div class="my-jumbotron text-center shadow-z-1">
 	<div class="page-header">
 	  <h1>Temperatura <small><br />Temperatura effettiva: {{ctrl.temperatura.temperatura}}</small></h1>
 	</div>
@@ -19,4 +19,21 @@
 		<button class="btn btn-fab btn-raised btn-material-grey-300" ng-class="luce.stato" ng-click="ctrl.alza()"><i class="fa fa-chevron-up"></i></button>
 		</div>
 	</div>
+</div -->
+
+
+<div class="panel panel-default">
+    <div id="temperatura"class="panel-body">
+      <p>Temperatura effettiva: {{ctrl.temperatura.temperatura}}</p>
+    </div>
+    <div id="temperaturaSet" class="panel-footer">
+  			<button class="btn btn-fab btn-raised btn-material-grey-300" ng-class="luce.stato" ng-click="ctrl.abbassa()">
+          <i class="fa fa-chevron-down"></i>
+        </button>
+  			<label>{{ctrl.temperatura.temperaturaSet}}</label>
+  		  <button class="btn btn-fab btn-raised btn-material-grey-300" ng-class="luce.stato" ng-click="ctrl.alza()">
+          <i class="fa fa-chevron-up"></i>
+        </button>
+  		</div>
+    </div>
 </div>

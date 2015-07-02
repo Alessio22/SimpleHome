@@ -1,3 +1,4 @@
+/* Commons */
 html {
 	font-size: 10px;
 }
@@ -6,20 +7,10 @@ body {
 	margin-top: 6.4rem;
 }
 
-.page-header {
-	margin: 0.8rem;
-	padding: 0;
-}
-
 h1, h2 {
 	color: #1b5e20;
 	margin-top: 0.8rem;
   margin-bottom: 0.8rem;
-}
-
-hr {
-	background-color: #1b5e20;
-	border-width: 0;
 }
 
 p {
@@ -33,29 +24,40 @@ strong {
 	font-size: 25px;
 }
 
-.my-jumbotron {
-	margin: 0 5px 0 5px;
-	padding: 10px;
-	border-radius: 5px;
-	background-color: #FFFFFF;
+label {
 	font-size: 16px;
 }
 
-#nav-btn {
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 9999;
-	color: #FFF;
-	padding: 11px 20px;
+/* Temperature */
+#temperatura p {
+	margin-top: 1rem;
+	color: #000000;
+	font-size: 22px;
+	text-align: center;
 }
 
 #temperaturaSet {
-	margin-top: 1rem;
+	display: flex;
+	height: 7.6rem;
+	width: 100%;
+}
+
+#temperaturaSet label {
+	flex: 1;
+	display: block;
+  height: 5.6rem;
+  line-height: 5.6rem;
+	font-size: 2.5rem;
+	text-align: center;
 	color: #1b5e20;
 }
 
-label.togglelabel {
+#temperaturaSet button {
+	display: block;
+}
+
+/* Allarme */
+.togglebutton label {
 	float: right;
 }
 
@@ -65,50 +67,5 @@ label.togglelabel {
 
 .list-group .list-group-item {
 	padding: 0.8rem;
-}
-
-.toolbar {
-	position: fixed;
-	z-index: 1030;
-	top: 0;
-	left: 0;
-	height: 5.6rem;
-	width: 100%;
-	display: flex;
-	color: #EEEEEE;
-}
-
-.toolbar a,
-.toolbar a:active,
-.toolbar a:link,
-.toolbar a:hover,
-.toolbar a:visited {
-	color: #EEEEEE !important;
-	text-decoration: none;
-}
-
-.toolbar .toolbar-icon, .toolbar .toolbar-icon i {
-	display: block;
-	height: 5.6rem;
-	width: 5.6rem;
-	line-height: 5.6rem;
-	font-size: 2rem;
-	text-align: center;
-}
-
-.toolbar .toolbar-label {
-	flex: 1;
-	display: block;
-	height: 5.6rem;
-	line-height: 5.6rem;
-	font-size: 2rem;
-}
-
-.toolbar .toolbar-label:first-child {
-	flex: 1;
-	display: block;
-	height: 5.6rem;
-	line-height: 5.6rem;
-	font-size: 2rem;
-	margin-left: 0.8rem;
+	font-weight: bold;
 }

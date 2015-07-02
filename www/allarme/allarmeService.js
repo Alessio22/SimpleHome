@@ -13,10 +13,16 @@ angular.module('simpleHome.allarmeService', [])
         }
       });
       promise.success(function(data, status, headers, conf) {
-				var response = x2js.xml_str2json(data).response;
-				allarme.statoArea8 = response.statoArea8 == 1;
-				allarme.statoAreaP18 = response.statoAreaP18 == 1;
-				allarme.statoAreaP28 = response.statoAreaP28 == 1;
+				var json = x2js.xml_str2json(data);
+				if(json) {
+					var response = json.response;
+					allarme.statoArea8 = response.statoArea8 == 1;
+					allarme.statoAreaP18 = response.statoAreaP18 == 1;
+					allarme.statoAreaP28 = response.statoAreaP28 == 1;
+				}
+				setTimeout(function(){
+		      $("#modalLoading").modal("hide");
+		    }, 500);
         return data;
       });
       return promise;

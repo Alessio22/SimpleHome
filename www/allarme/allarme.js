@@ -24,14 +24,18 @@ angular.module('simpleHome.allarme', ['ngRoute'])
     statoAreaP28: 0
   };
 
-	var response = x2js.xml_str2json(allarme.data).response;
-	ctrl.allarme.statoArea8 = response.statoArea8 == 1;
-	ctrl.allarme.statoAreaP18 = response.statoAreaP18 == 1;
-	ctrl.allarme.statoAreaP28 = response.statoAreaP28 == 1;
+	var json = x2js.xml_str2json(allarme.data);
+	if(json) {
+    var response = json.response;
+		ctrl.allarme.statoArea8 = response.statoArea8 == 1;
+		ctrl.allarme.statoAreaP18 = response.statoAreaP18 == 1;
+		ctrl.allarme.statoAreaP28 = response.statoAreaP28 == 1;
+	}
 
   AllarmeService.stato(ctrl.allarme);
 
 	$rootScope.$on('toolbar:refresh', function(e) {
+		$("#modalLoading").modal("show");
 		AllarmeService.stato(ctrl.allarme);
 	});
 
