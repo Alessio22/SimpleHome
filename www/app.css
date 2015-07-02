@@ -3,10 +3,6 @@ html {
 	font-size: 10px;
 }
 
-body {
-	margin-top: 6.4rem;
-}
-
 h1, h2 {
 	color: #1b5e20;
 	margin-top: 0.8rem;
@@ -38,7 +34,7 @@ label {
 
 #temperaturaSet {
 	display: flex;
-	height: 7.6rem;
+	height: 8.6rem;
 	width: 100%;
 }
 
