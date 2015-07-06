@@ -13,15 +13,25 @@
     <access origin="*" />
 
     <preference name="Orientation" value="portrait" />
-    <preference name="LoadingDialog" value="SimpleHome, Avvio applicazione..."/>
+    <!-- preference name="LoadingDialog" value="SimpleHome, Avvio applicazione..."/ -->
     <preference name="ShowTitle" value="false"/>
     <preference name="LogLevel" value="ERROR"/>
     <preference name="KeepRunning" value="false"/>
+    <preference name="StatusBarOverlaysWebView" value="true" />
+    <preference name="StatusBarBackgroundColor" value="#1B5E20" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 
     <platform name="android">
         <icon src="icons/android/icon-36-ldpi.png" width="36" height="36" />
         <icon src="icons/android/icon-48-mdpi.png" width="48" height="48" />
         <icon src="icons/android/icon-72-hdpi.png" width="72" height="72" />
         <icon src="icons/android/icon-96-xhdpi.png" width="96" height="96" />
+
+      <!--  <splash src="splash/android/splash-port-ldpi.png" width="426" height="320" density="port-ldpi"/> <!-- ldpi = 320 x 426 -->
+      <!--  <splash src="splash/android/splash-port-hdpi.png" width="470" height="320" density="port-hdpi"/> <!-- mdpi = 320 X 470 -->
+      <!--  <splash src="splash/android/splash-port-mdpi.png" width="640" height="480" density="port-mdpi"/> <!-- hdpi = 480 x 640 -->
+      <!--  <splash src="splash/android/splash-port-xhdpi.png" width="960" height="720" density="port-xhdpi"/> <!-- xhdpi = 720 x 960 -->
     </platform>
+
+    <preference name="SplashScreenDelay" value="1000" />
 </widget>
