@@ -5,16 +5,15 @@ var app = angular.module('simpleHome', [
   'ngRoute',
   'angularRipple',
   'simpleHome.toolbar',
+  'simpleHome.onLoad',
   'simpleHome.home',
   'simpleHome.luci',
-  'simpleHome.temperature',
-  'simpleHome.allarme',
-  'simpleHome.settings',
-  'simpleHome.version',
-  'simpleHome.onLoad',
   'simpleHome.luciService',
+  'simpleHome.temperature',
   'simpleHome.temperatureService',
-  'simpleHome.allarmeService'
+  'simpleHome.allarme',
+  'simpleHome.allarmeService',
+  'simpleHome.settings'
 ]);
 
 app.config(['$routeProvider', function($routeProvider) {

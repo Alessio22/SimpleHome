@@ -7,8 +7,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SimpleHome App</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection" content="telephone=no">
 
   <!-- css libs -->
   <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="lib/bootstrap_material/css/roboto.min.css">
   <link rel="stylesheet" href="lib/angular-ripple/angular-ripple.css">
   <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" >
+  <link rel='stylesheet' href='lib/material-refresh/material-refresh.min.css'/>
 
   <!-- css app -->
   <link rel="stylesheet" href="app.css">
@@ -28,14 +29,14 @@
   <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="lib/bootstrap_material/js/material.min.js"></script>
   <script type="text/javascript" src="lib/bootstrap_material/js/ripples.min.js"></script>
-  <script type="text/javascript" src="xml2json.min.js"></script>
+  <script type="text/javascript" src="lib/xml2json.min.js"></script>
 <!--
   <script type="text/javascript" src="cordova.js"></script>
 -->
 </head>
 <body on-load>
 
-  <div class="container">
+  <div id="content" class="container">
     <div ng-view></div>
   </div>
 
@@ -64,19 +65,21 @@
   <script src="lib/angular-ripple/angular-ripple.js"></script>
   <!-- js app -->
   <script src="app.js"></script>
-  <script src="home/home.js"></script>
-  <script src="luci/luci.js"></script>
-  <script src="luci/luciService.js"></script>
-  <script src="temperature/temperature.js"></script>
-  <script src="temperature/temperatureService.js"></script>
-  <script src="allarme/allarme.js"></script>
-  <script src="allarme/allarmeService.js"></script>
-  <script src="settings/settings.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
   <script src="components/onLoad/onLoad-directive.js"></script>
   <script src="components/toolbar/toolbar-directive.js"></script>
+
+  <script src="home/home.js"></script>
+
+  <script src="luci/luci.js"></script>
+  <script src="luci/luciService.js"></script>
+
+  <script src="temperature/temperature.js"></script>
+  <script src="temperature/temperatureService.js"></script>
+
+  <script src="allarme/allarme.js"></script>
+  <script src="allarme/allarmeService.js"></script>
+
+  <script src="settings/settings.js"></script>
 
 </body>
 </html>
