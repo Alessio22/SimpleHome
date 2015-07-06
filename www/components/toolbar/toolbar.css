@@ -31,6 +31,13 @@ body {
 	text-align: center;
 }
 
+.toolbar img {
+	display: block;
+	height: 2.6rem;
+	width: 3.8rem;
+	margin: 1.8rem 0.6rem;
+}
+
 .toolbar .toolbar-label {
 	flex: 1;
 	display: block;

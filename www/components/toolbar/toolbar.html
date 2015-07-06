@@ -2,6 +2,7 @@
   <a angular-ripple ng-if="icon" class="toolbar-icon" href="#home">
     <i class="fa {{icon}}"></i>
   </a>
+  <img ng-if="image" src="{{image}}" />
   <label class="toolbar-label">{{label}}</label>
   <a angular-ripple ng-if="refresh == 'true'" class="toolbar-icon" ng-click="clickRefresh()">
     <i class="fa fa-refresh" ></i>

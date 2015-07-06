@@ -9,7 +9,8 @@ angular.module('simpleHome.toolbar', [])
     scope: {
       icon: '@',
       label: '@',
-      refresh: '@'
+      refresh: '@',
+      image: '@'
     },
     templateUrl: 'components/toolbar/toolbar.html',
     controller: function($scope) {
