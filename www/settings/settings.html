@@ -1,59 +1,36 @@
-<div class="my-jumbotron">
+<toolbar
+  icon="fa-arrow-left"
+  label="Impostazioni" >
+</toolbar>
 
-  <form>
-    <div class="form-group">
-      <label for="alias">Alias</label>
-      <input ng-model="cfg1.alias" type="text" class="form-control" id="alias" placeholder="Enter alias">
-    </div>
-    <div class="form-group">
-      <label for="host1">Host</label>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <select ng-model="cfg1.prot" >
-            <option value="HTTP://">HTTP</option>
-            <option value="HTTPS://">HTTPS</option>
-          </select>
-        </span>
-        <input ng-model="host1" type="text" class="form-control" id="host1" placeholder="Enter host">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="username1">Username</label>
-      <input ng-model="cfg1.username" type="text" class="form-control" id="username1" placeholder="Enter username">
-    </div>
-    <div class="form-group">
-      <label for="password1">Password</label>
-      <input ng-model="cfg1.password" type="password" class="form-control" id="password1" placeholder="Password">
-    </div>
-  </form>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <label for="alias1">Alias</label>
+    <input type="text" ng-model="cfg1.alias" class="form-control input-lg" id="alias1" placeholder="Enter alias">
 
-  <form>
-    <hr />
-    <div class="form-group">
-      <label for="alias">Alias</label>
-      <input ng-model="cfg2.alias" type="text" class="form-control" id="alias" placeholder="Enter alias">
-    </div>
-    <div class="form-group">
-      <label for="host2">Host</label>
-      <div class="input-group">
-        <span class="input-group-addon" >
-          <select ng-model="cfg2.prot" >
-            <option value="HTTP://">HTTP</option>
-            <option value="HTTPS://">HTTPS</option>
-          </select>
-        </span>
-        <input ng-model="host2" type="text" class="form-control" id="host2" placeholder="Enter host">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="username2">Username</label>
-      <input ng-model="cfg2.username" type="text" class="form-control" id="username2" placeholder="Enter username">
-    </div>
-    <div class="form-group">
-      <label for="password2">Password</label>
-      <input ng-model="cfg2.password" type="password" class="form-control" id="password2" placeholder="Password">
-    </div>
-  </form>
+    <label for="host1">Host</label>
+    <input ng-model="host1" type="text" class="form-control input-lg" id="host1" placeholder="Enter host">
 
-  <button ng-click="updateConfig()" class="btn btn-success btn-lg btn-block">Salva</button>
+    <label for="username1">Username</label>
+    <input ng-model="cfg1.username" type="text" class="form-control input-lg" id="username1" placeholder="Enter username">
+
+    <label for="password1">Password</label>
+    <input ng-model="cfg1.password" type="password" class="form-control input-lg" id="password1" placeholder="Password">
+  </div>
 </div>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <label for="alias2">Alias</label>
+    <input type="text" ng-model="cfg2.alias" class="form-control input-lg" id="alias2" placeholder="Enter alias">
+
+    <label for="host2">Host</label>
+    <input ng-model="host2" type="text" class="form-control input-lg" id="host2" placeholder="Enter host">
+
+    <label for="username2">Username</label>
+    <input ng-model="cfg2.username" type="text" class="form-control input-lg" id="username2" placeholder="Enter username">
+
+    <label for="password2">Password</label>
+    <input ng-model="cfg2.password" type="password" class="form-control input-lg" id="password2" placeholder="Password">
+  </div>
+</div>
+<button ng-click="updateConfig()" class="btn btn-lg btn-raised btn-block btn-material-green-900">Salva</button>

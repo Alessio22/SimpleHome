@@ -1,0 +1,132 @@
+<toolbar
+  icon="fa-arrow-left"
+  label="Allarme"
+  refresh="true" >
+</toolbar>
+
+<div class="list-group">
+  <div class="list-group-item">
+
+				<div class="togglebutton togglebutton-material-green-900">
+					Allarme
+				  <label class="togglelabel">
+				      <input type="checkbox" ng-model="ctrl.allarme.statoArea8" ng-change="ctrl.camboStato('8')" />
+							<span class="toggle"></span>
+				  </label>
+				</div>
+
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+
+				<div class="togglebutton togglebutton-material-green-900">
+					Allarme P1
+				  <label class="togglelabel">
+				      <input type="checkbox" ng-model="ctrl.allarme.statoAreaP18" ng-change="ctrl.camboStato('P18')" />
+							<span class="toggle"></span>
+				  </label>
+				</div>
+
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+
+				<div class="togglebutton togglebutton-material-green-900">
+					Allarme P2
+					<label class="togglelabel">
+							<input type="checkbox"ng-model="ctrl.allarme.statoAreaP28" ng-change="ctrl.camboStato('P28')" />
+							<span class="toggle"></span>
+					</label>
+				</div>
+
+  </div>
+  <div class="list-group-separator"></div>
+
+
+
+
+  <div class="list-group-item">
+    <h2>Zone Filo</h2>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF0 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF0}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF0 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF1 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF1}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF1 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF2 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF2}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF2 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF3 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF3}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF3 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF4 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF4}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF4 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF5 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF5}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF5 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF6 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF6}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF6 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div class="list-group-item">
+    <div class="row-action-primary">
+      <i class="{{ctrl.statoZone.inF7 == 0 ? 'mdi-action-done' : 'mdi-notification-do-not-disturb'}}"></i>
+    </div>
+    <div class="row-content">
+      <h4 class="list-group-item-heading">{{ctrl.statoZone.descF7}}</h4>
+      <p class="list-group-item-text">{{ctrl.statoZone.inF7 == 0 ? 'Chiusa' : 'Aperta'}}</p>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+</div>
