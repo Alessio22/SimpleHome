@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('simpleHome.allarme', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -14,7 +12,7 @@ angular.module('simpleHome.allarme', ['ngRoute'])
   	});
 }])
 
-.controller('AllarmeCtrl', ['$rootScope','AllarmeService', 'allarme', function($rootScope, AllarmeService, allarme) {
+.controller('AllarmeCtrl', ['$rootScope','AllarmeService', '$http', 'allarme', function($rootScope, AllarmeService, $http, allarme) {
   var ctrl = this;
 	$rootScope.isHome = false;
 
@@ -33,6 +31,20 @@ angular.module('simpleHome.allarme', ['ngRoute'])
 	}
 
   AllarmeService.stato(ctrl.allarme);
+
+	$http({
+		method: 'POST',
+		url: "http://"+$rootScope.cfg.host+'user/zone_intr.xml',
+		headers: {
+			'Authorization': 'Basic ' + btoa($rootScope.cfg.username+":"+$rootScope.cfg.password)
+		}
+	}).success(function(data, status, headers, conf) {
+		var jsonZone = x2js.xml_str2json(data);
+		if(jsonZone) {
+			console.log(jsonZone.response);
+			ctrl.statoZone = jsonZone.response;
+		}
+	});
 
 	$rootScope.$on('toolbar:refresh', function(e) {
 		$("#modalLoading").modal("show");

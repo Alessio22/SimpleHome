@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('simpleHome.allarmeService', [])
 .factory('AllarmeService', ['$rootScope','$http', function($rootScope, $http) {
 	return {
